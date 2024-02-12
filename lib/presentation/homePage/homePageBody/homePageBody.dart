@@ -30,7 +30,7 @@ class _homePageBodyState extends State<homePageBody> {
           const SizedBox(height: 20),
           const mainTitle(title: 'Categories'),
           const SizedBox(height: 25),
-          SizedBox(height: 160, child: categoriesListView()),
+          SizedBox(height: 170, child: categoriesListView()),
           const SizedBox(height: 20),
           const mainTitle(title: 'Discount'),
           const SizedBox(height: 10),

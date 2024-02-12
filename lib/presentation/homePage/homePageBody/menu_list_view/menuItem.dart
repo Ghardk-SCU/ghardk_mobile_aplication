@@ -17,7 +17,7 @@ class _menuItemState extends State<menuItem> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.85,
-      height: 180,
+      height: 190,
       decoration: BoxDecoration(
         color: kMainColor,
         borderRadius: BorderRadius.circular(8),

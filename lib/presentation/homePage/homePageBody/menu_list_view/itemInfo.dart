@@ -29,7 +29,7 @@ class ItemInfo extends StatelessWidget {
             SizedBox(width: 5),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(top: 10),
+                padding: const EdgeInsets.only(top: 4),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

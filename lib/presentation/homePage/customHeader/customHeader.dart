@@ -44,7 +44,7 @@ class customHeader extends StatelessWidget {
                             child: Container(
                                 width: 10.0,
                                 child: Image.asset(
-                                  'assets/images/Logo.png',
+                                  'assets/images/Logo/Logo.png',
                                 ))),
                         TextSpan(text: part2),
                       ],

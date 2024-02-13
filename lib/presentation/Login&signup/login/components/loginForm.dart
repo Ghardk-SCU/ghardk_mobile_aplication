@@ -18,7 +18,7 @@ class _passwordInputState extends State<loginForm> {
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.only(left: 15),
-          labelText: 'Email or Phone Number',
+          labelText: 'Email or Username',
           //hintText: 'Enter username',
           prefixIcon: const Icon(Icons.person),
           border: OutlineInputBorder(

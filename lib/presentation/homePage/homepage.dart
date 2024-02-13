@@ -3,7 +3,6 @@ import 'package:final_project/presentation/homePage/homePageBody/homePageBody.da
 import 'package:flutter/material.dart';
 
 import 'customHeader/customHeader.dart';
-import 'homePageBody/Discount_list/discountItem.dart';
 
 class homePage extends StatefulWidget {
   const homePage({super.key});

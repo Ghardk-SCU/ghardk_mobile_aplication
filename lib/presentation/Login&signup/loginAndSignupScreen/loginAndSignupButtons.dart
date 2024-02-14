@@ -16,8 +16,8 @@ class loginAndSignupButtons extends StatelessWidget {
         InkWell(
           onTap: () {
             Get.to(loginPage(),
-                transition: Transition.leftToRight,
-                duration: Duration(seconds: 1));
+                transition: Transition.leftToRightWithFade,
+                duration: Duration(milliseconds: 700));
           },
           child: Container(
             width: 140,

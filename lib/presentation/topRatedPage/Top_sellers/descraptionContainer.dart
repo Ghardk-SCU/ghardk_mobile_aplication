@@ -10,7 +10,7 @@ class descContainer extends StatelessWidget {
       bottom: -30,
       left: -10,
       child: Container(
-        width: 380,
+        width: MediaQuery.of(context).size.width - 16,
         height: 50,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8), color: kMainColor),

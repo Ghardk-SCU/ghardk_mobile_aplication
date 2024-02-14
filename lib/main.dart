@@ -1,4 +1,6 @@
 import 'package:final_project/core/utilits/constant.dart';
+import 'package:final_project/presentation/Login&signup/login/forgotPassword/forgotPassword.dart';
+import 'package:final_project/presentation/Login&signup/login/loginPage.dart';
 import 'package:final_project/presentation/mainPage/mainPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
           textTheme:
               GoogleFonts.nunitoSansTextTheme(Theme.of(context).textTheme)),
       debugShowCheckedModeBanner: false,
-      home: mainPage(),
+      home: forgotPassword(),
     );
   }
 }

@@ -10,9 +10,11 @@ class loginPage extends StatefulWidget {
 }
 
 class _loginPageState extends State<loginPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: kMainColor,
       body: SingleChildScrollView(
         padding: EdgeInsets.only(top: 40, left: 16, right: 16),

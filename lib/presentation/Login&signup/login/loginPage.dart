@@ -1,6 +1,8 @@
 import 'package:final_project/core/utilits/constant.dart';
 import 'package:final_project/presentation/Login&signup/login/loginContainer.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 
 class loginPage extends StatefulWidget {
   const loginPage({super.key});
@@ -25,6 +27,7 @@ class _loginPageState extends State<loginPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              back(),
               Image.asset('assets/images/Logo/completeLogo.png',
                   fit: BoxFit.contain),
               Text('Welcome back!', style: loginStyle),
@@ -39,3 +42,28 @@ class _loginPageState extends State<loginPage> {
 
 const loginStyle =
     TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.w400);
+
+class back extends StatelessWidget {
+  const back({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              //FontAwesomeIcons.arrowLeft,
+              Icons.keyboard_arrow_left,
+              size: 30,
+              color: Colors.white,
+            ))
+      ],
+    );
+  }
+}

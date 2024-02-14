@@ -19,6 +19,7 @@ class loginAndSignupScreen extends StatelessWidget {
           children: [
             mainLogo(),
             Container(
+              //height: double.maxFinite,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: kMainColor,
@@ -32,11 +33,13 @@ class loginAndSignupScreen extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      SizedBox(height: 30),
                       Image.asset('assets/images/WelcomeImg.png'),
                       SizedBox(height: 30),
                       loginAndSignupButtons(),
                       SizedBox(height: 20),
                       skipItNowButton(),
+                      SizedBox(height: 20),
                     ]),
               ),
             ),

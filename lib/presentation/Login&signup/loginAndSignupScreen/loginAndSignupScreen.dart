@@ -18,34 +18,44 @@ class loginAndSignupScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             mainLogo(),
-            Container(
-              //height: double.maxFinite,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: kMainColor,
-                borderRadius: BorderRadius.vertical(
-                    top: Radius.elliptical(
-                        MediaQuery.of(context).size.width, 130)),
-              ),
-              child: Padding(
-                padding:
-                    EdgeInsets.only(top: 20, left: 16, right: 16, bottom: 20),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(height: 30),
-                      Image.asset('assets/images/WelcomeImg.png'),
-                      SizedBox(height: 30),
-                      loginAndSignupButtons(),
-                      SizedBox(height: 20),
-                      skipItNowButton(),
-                      SizedBox(height: 20),
-                    ]),
+            ClipOval(
+              clipper: MyClip(),
+              child: Container(
+                //height: double.maxFinite,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: kMainColor,
+                ),
+                child: Padding(
+                  padding:
+                      EdgeInsets.only(top: 20, left: 16, right: 16, bottom: 20),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(height: 30),
+                        Image.asset('assets/images/WelcomeImg.png'),
+                        SizedBox(height: 30),
+                        loginAndSignupButtons(),
+                        SizedBox(height: 20),
+                        skipItNowButton(),
+                        SizedBox(height: 20),
+                      ]),
+                ),
               ),
             ),
           ],
         ),
       ),
     );
+  }
+}
+
+class MyClip extends CustomClipper<Rect> {
+  Rect getClip(Size size) {
+    return Rect.fromLTWH(-260, 0, 930, 1000);
+  }
+
+  bool shouldReclip(oldClipper) {
+    return false;
   }
 }

@@ -15,9 +15,6 @@ class customHeader extends StatelessWidget {
         decoration: BoxDecoration(
           border: const Border(
             bottom: BorderSide(color: kMainColor, width: 3),
-            top: BorderSide(color: kMainColor, width: 0.0000001),
-            right: BorderSide(color: kMainColor, width: 0.1),
-            left: BorderSide(color: kMainColor, width: 0.1),
           ),
           borderRadius: BorderRadius.vertical(
               bottom: Radius.elliptical(MediaQuery.of(context).size.width, 70)),
@@ -60,5 +57,15 @@ class customHeader extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class MyClip extends CustomClipper<Rect> {
+  Rect getClip(Size size) {
+    return Rect.fromLTRB(0, 0, 0, 100);
+  }
+
+  bool shouldReclip(oldClipper) {
+    return false;
   }
 }

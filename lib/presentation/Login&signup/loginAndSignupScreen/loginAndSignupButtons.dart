@@ -1,5 +1,6 @@
 import 'package:final_project/core/utilits/constant.dart';
 import 'package:final_project/presentation/Login&signup/login/loginPage.dart';
+import 'package:final_project/presentation/Login&signup/signup/signupPage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -37,8 +38,9 @@ class loginAndSignupButtons extends StatelessWidget {
         const SizedBox(width: 16),
         InkWell(
           onTap: () {
-            /*  Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const signupPage())); */
+            Get.to(signupPage(),
+                transition: Transition.rightToLeftWithFade,
+                duration: Duration(milliseconds: 700));
           },
           child: Container(
             width: 140,

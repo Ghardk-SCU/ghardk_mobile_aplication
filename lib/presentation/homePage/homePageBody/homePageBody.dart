@@ -36,8 +36,6 @@ class _homePageBodyState extends State<homePageBody> {
           const SizedBox(height: 10),
           categoryListView(),
           const SizedBox(height: 20),
-          //discountContaier()
-          //discountItem(),
           SizedBox(height: 280, child: discountListView()),
         ],
       ),

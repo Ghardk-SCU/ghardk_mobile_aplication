@@ -18,7 +18,7 @@ class loginAndSignupButtons extends StatelessWidget {
           onTap: () {
             Get.to(loginPage(),
                 transition: Transition.leftToRightWithFade,
-                duration: Duration(milliseconds: 700));
+                duration: Duration(milliseconds: 500));
           },
           child: Container(
             width: 140,
@@ -40,7 +40,7 @@ class loginAndSignupButtons extends StatelessWidget {
           onTap: () {
             Get.to(signupPage(),
                 transition: Transition.rightToLeftWithFade,
-                duration: Duration(milliseconds: 700));
+                duration: Duration(milliseconds: 500));
           },
           child: Container(
             width: 140,

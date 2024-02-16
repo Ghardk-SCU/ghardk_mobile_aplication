@@ -42,6 +42,7 @@ dependencies:
   font_awesome_flutter: ^10.7.0
   icony: ^1.0.5
   google_fonts: ^6.1.0
+  dio: ^5.4.0
 
 dev_dependencies:
   flutter_test:

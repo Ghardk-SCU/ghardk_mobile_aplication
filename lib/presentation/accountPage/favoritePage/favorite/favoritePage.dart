@@ -1,6 +1,5 @@
 import 'package:final_project/presentation/accountPage/favoritePage/favAppBar/favAppBar.dart';
 import 'package:final_project/presentation/accountPage/favoritePage/favCategories/favCategories.dart';
-import 'package:final_project/presentation/accountPage/favoritePage/favorite/favoriteItem/favItem.dart';
 import 'package:final_project/presentation/accountPage/favoritePage/favorite/favoriteItem/gridViewFavList.dart';
 import 'package:final_project/presentation/accountPage/favoritePage/favorite/filtterButton.dart';
 import 'package:flutter/material.dart';

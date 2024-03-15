@@ -24,8 +24,7 @@ class _loginContainerState extends State<loginContainer> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
       ),
-      child: Column(
-        //crossAxisAlignment: CrossAxisAlignment.center,
+      child: const Column(
         children: [
           Text(
             'Login',

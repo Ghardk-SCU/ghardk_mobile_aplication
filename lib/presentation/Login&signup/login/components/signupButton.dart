@@ -1,5 +1,7 @@
 import 'package:final_project/core/utilits/constant.dart';
+import 'package:final_project/presentation/Login&signup/signup/signupPage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class signupButton extends StatelessWidget {
   const signupButton({
@@ -13,7 +15,11 @@ class signupButton extends StatelessWidget {
       children: [
         Text("Don't have an account? ", style: TextStyle(color: kMainColor)),
         InkWell(
-            onTap: () {},
+            onTap: () {
+              Get.to(signupPage(),
+                  transition: Transition.fadeIn,
+                  duration: Duration(milliseconds: 500));
+            },
             child: const Text('Sign Up',
                 style: TextStyle(
                     fontSize: 14,

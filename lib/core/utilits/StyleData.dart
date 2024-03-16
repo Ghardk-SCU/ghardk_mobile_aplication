@@ -1,3 +1,4 @@
+import 'package:final_project/core/utilits/constant.dart';
 import 'package:flutter/material.dart';
 
 abstract class StylesData {
@@ -9,7 +10,7 @@ abstract class StylesData {
       fontSize: 24);
 
   static const descStyle = TextStyle(
-      color: Color.fromARGB(131, 110, 110, 131),
+      color: steel,
       fontWeight: FontWeight.w300,
       fontStyle: FontStyle.normal,
       fontSize: 12);
@@ -22,7 +23,7 @@ abstract class StylesData {
   );
 
   static const descItemStyle = TextStyle(
-      color: Color.fromARGB(255, 168, 165, 165),
+      color: steel,
       fontWeight: FontWeight.w400,
       fontStyle: FontStyle.normal,
       fontSize: 10);

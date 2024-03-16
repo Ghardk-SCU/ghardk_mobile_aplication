@@ -36,14 +36,14 @@ class customHeader extends StatelessWidget {
                     text: TextSpan(
                       style: StylesData.descStyle,
                       children: [
-                        TextSpan(text: part1),
+                        TextSpan(text: part1, style: StylesData.descStyle),
                         WidgetSpan(
                             child: Container(
                                 width: 10.0,
                                 child: Image.asset(
                                   'assets/images/Logo/Logo.png',
                                 ))),
-                        TextSpan(text: part2),
+                        TextSpan(text: part2, style: StylesData.descStyle),
                       ],
                     ),
                   ),

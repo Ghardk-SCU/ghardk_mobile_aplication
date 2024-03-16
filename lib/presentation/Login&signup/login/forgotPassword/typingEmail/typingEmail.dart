@@ -3,7 +3,9 @@ import 'package:final_project/presentation/Login&signup/login/forgotPassword/com
 import 'package:final_project/presentation/Login&signup/login/forgotPassword/components/descTitle.dart';
 import 'package:final_project/presentation/Login&signup/login/forgotPassword/components/image.dart';
 import 'package:final_project/presentation/Login&signup/login/forgotPassword/components/mainTitle.dart';
+import 'package:final_project/presentation/Login&signup/login/forgotPassword/emailConfirmation/emailConfirmation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class typingEmail extends StatelessWidget {
   const typingEmail({
@@ -39,7 +41,22 @@ class typingEmail extends StatelessWidget {
           ),
         ),
         SizedBox(height: 20),
-        actionButton(text: 'Send Passcode', ontap: () {}),
+        actionButton(
+            text: 'Send Passcode',
+            ontap: () {
+              {
+                ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(64),
+                            topRight: Radius.circular(64))),
+                    duration: Duration(hours: 1),
+                    backgroundColor: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                    content: emailConfirmation()));
+              }
+            }),
         SizedBox(height: 50),
       ],
     );

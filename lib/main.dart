@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           textTheme:
               GoogleFonts.nunitoSansTextTheme(Theme.of(context).textTheme)),
       debugShowCheckedModeBanner: false,
-      home: mainPage(),
+      home: loginAndSignupScreen(),
     );
   }
 }

@@ -1,4 +1,3 @@
-import 'package:final_project/core/utilits/constant.dart';
 import 'package:final_project/presentation/Login&signup/login/forgotPassword/components/actionButton.dart';
 import 'package:final_project/presentation/Login&signup/login/forgotPassword/components/backButton.dart';
 import 'package:final_project/presentation/Login&signup/login/forgotPassword/components/descTitle.dart';
@@ -7,8 +6,6 @@ import 'package:final_project/presentation/Login&signup/login/forgotPassword/com
 import 'package:final_project/presentation/Login&signup/login/forgotPassword/emailConfirmation/otp.dart';
 import 'package:final_project/presentation/Login&signup/login/forgotPassword/resetpassword/resetPassword.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 
 class emailConfirmation extends StatelessWidget {
   const emailConfirmation({super.key});

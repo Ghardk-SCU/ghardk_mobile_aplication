@@ -5,7 +5,6 @@ import 'package:final_project/presentation/Login&signup/login/forgotPassword/com
 import 'package:final_project/presentation/Login&signup/login/forgotPassword/components/mainTitle.dart';
 import 'package:final_project/presentation/Login&signup/login/forgotPassword/emailConfirmation/emailConfirmation.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class typingEmail extends StatelessWidget {
   const typingEmail({
@@ -17,16 +16,16 @@ class typingEmail extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        backButton(),
-        title(text: 'Forgot Password'),
-        descTitle(
+        const backButton(),
+        const title(text: 'Forgot Password'),
+        const descTitle(
             desctitle:
                 "Enter your email , and we'll send you a code to reset your password. Stay secure!"),
-        SizedBox(height: 20),
-        image(img: 'assets/images/forgotPassword/forgotPassword 1.png'),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
+        const image(img: 'assets/images/forgotPassword/forgotPassword 1.png'),
+        const SizedBox(height: 20),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           child: TextFormField(
             //onChanged: (value) => email = value,
             keyboardType: TextInputType.emailAddress,
@@ -40,7 +39,7 @@ class typingEmail extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         actionButton(
             text: 'Send Passcode',
             ontap: () {
@@ -57,7 +56,7 @@ class typingEmail extends StatelessWidget {
                     content: emailConfirmation()));
               }
             }),
-        SizedBox(height: 50),
+        const SizedBox(height: 50),
       ],
     );
   }

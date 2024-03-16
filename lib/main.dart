@@ -1,5 +1,6 @@
 import 'package:final_project/core/utilits/constant.dart';
 import 'package:final_project/presentation/Login&signup/loginAndSignupScreen/loginAndSignupScreen.dart';
+import 'package:final_project/presentation/mainPage/mainPage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
           textTheme:
               GoogleFonts.nunitoSansTextTheme(Theme.of(context).textTheme)),
       debugShowCheckedModeBanner: false,
-      home: loginAndSignupScreen(),
+      home: mainPage(),
     );
   }
 }

@@ -1,8 +1,10 @@
 import 'package:final_project/core/utilits/constant.dart';
 import 'package:final_project/presentation/Login&signup/login/loginPage.dart';
+import 'package:final_project/presentation/Login&signup/loginAndSignupScreen/loginAndSignupScreen.dart';
 import 'package:final_project/presentation/Login&signup/signup/signupPage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:page_transition/page_transition.dart';
 
 class loginAndSignupButtons extends StatelessWidget {
   const loginAndSignupButtons({
@@ -16,9 +18,14 @@ class loginAndSignupButtons extends StatelessWidget {
       children: [
         InkWell(
           onTap: () {
-            Get.to(loginPage(),
-                transition: Transition.leftToRightWithFade,
-                duration: Duration(milliseconds: 500));
+            Navigator.push(
+                context,
+                PageTransition(
+                  childCurrent: loginAndSignupScreen(),
+                  type: PageTransitionType.leftToRightJoined,
+                  duration: Duration(milliseconds: 600),
+                  child: loginPage(),
+                ));
           },
           child: Container(
             width: 140,
@@ -38,9 +45,14 @@ class loginAndSignupButtons extends StatelessWidget {
         const SizedBox(width: 16),
         InkWell(
           onTap: () {
-            Get.to(signupPage(),
-                transition: Transition.rightToLeftWithFade,
-                duration: Duration(milliseconds: 500));
+            Navigator.push(
+                context,
+                PageTransition(
+                  childCurrent: loginAndSignupScreen(),
+                  type: PageTransitionType.rightToLeftJoined,
+                  duration: Duration(milliseconds: 600),
+                  child: signupPage(),
+                ));
           },
           child: Container(
             width: 140,

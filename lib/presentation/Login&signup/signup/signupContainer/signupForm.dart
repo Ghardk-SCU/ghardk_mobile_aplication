@@ -1,4 +1,5 @@
 import 'package:final_project/core/utilits/constant.dart';
+import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/checkBox.dart';
 import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/custonFormField.dart';
 import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/loginButton.dart';
 import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/signupButton.dart';
@@ -95,9 +96,14 @@ class _signupFormState extends State<signupForm> {
             ],
           ),
           signUpButton(
+            visable: isChecked,
             ontap: () {
-              if (formkey.currentState!.validate()) {
-                Get.to(mainPage());
+              if (isChecked) {
+                if (formkey.currentState!.validate()) {
+                  Get.to(mainPage());
+                }
+              } else {
+                return null;
               }
             },
           ),

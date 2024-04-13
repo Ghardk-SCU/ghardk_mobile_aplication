@@ -2,11 +2,9 @@ import 'package:final_project/core/utilits/constant.dart';
 import 'package:flutter/material.dart';
 
 class signUpButton extends StatelessWidget {
-  const signUpButton({
-    super.key,
-    required this.ontap,
-  });
+  const signUpButton({super.key, required this.ontap, required this.visable});
   final VoidCallback ontap;
+  final bool visable;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -16,7 +14,7 @@ class signUpButton extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
-          color: kMainColor,
+          color: visable ? kMainColor : kMainColor.withOpacity(0.6),
         ),
         child: Text(
           'SIGN UP',

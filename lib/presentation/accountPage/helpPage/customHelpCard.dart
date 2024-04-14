@@ -11,27 +11,29 @@ class customHelpCard extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 1,
-      child: Container(
-        padding: EdgeInsets.all(10),
-        //width: 182,
-        decoration: BoxDecoration(
-          border: Border.all(width: 0.1),
+    return Container(
+      padding: EdgeInsets.all(10),
+      //width: 182,
+      decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
-        ),
-        child: Column(
-          children: [
-            Icon(icon, size: 86, color: kMainColor),
-            SizedBox(height: 10),
-            Text(text,
-                style: TextStyle(
-                    fontSize: 16,
-                    color: kMainColor,
-                    fontWeight: FontWeight.w600))
-          ],
-        ),
+          boxShadow: [
+            BoxShadow(
+              color: Color(0xFF000000).withOpacity(0.3),
+              offset: Offset(-2, 4),
+              blurRadius: 5,
+              spreadRadius: -1,
+            ),
+          ]),
+
+      child: Column(
+        children: [
+          Icon(icon, size: 86, color: kMainColor),
+          SizedBox(height: 10),
+          Text(text,
+              style: TextStyle(
+                  fontSize: 16, color: kMainColor, fontWeight: FontWeight.w600))
+        ],
       ),
     );
   }

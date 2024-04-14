@@ -1,5 +1,6 @@
 import 'package:final_project/core/utilits/constant.dart';
-import 'package:final_project/presentation/accountPage/widget/favAppBar/favAppBar.dart';
+import 'package:final_project/presentation/accountPage/widget/customAccAppBar.dart';
+import 'package:final_project/presentation/accountPage/widget/customButton.dart';
 import 'package:final_project/presentation/accountPage/favoritePage/favCategories/favCategories.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +40,7 @@ class emptyFavoritePage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          exploreButton(),
+          customButton(text: 'Explore Items'),
           Spacer(),
         ],
       ),
@@ -69,28 +70,6 @@ class favImage extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class exploreButton extends StatelessWidget {
-  const exploreButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
-      child: Container(
-        padding: EdgeInsets.symmetric(vertical: 14, horizontal: 60),
-        //width: 160,
-        decoration: BoxDecoration(
-            color: kMainColor, borderRadius: BorderRadius.circular(16)),
-        child: Text('Explore Items',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 16, color: Colors.white)),
-      ),
     );
   }
 }

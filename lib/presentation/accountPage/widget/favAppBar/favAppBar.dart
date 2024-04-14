@@ -1,9 +1,9 @@
 import 'package:final_project/core/utilits/constant.dart';
 import 'package:flutter/material.dart';
 
-class favAppBar extends StatelessWidget {
-  const favAppBar({super.key});
-
+class customAccAppBar extends StatelessWidget {
+  const customAccAppBar({super.key, required this.text});
+  final String text;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,10 +24,10 @@ class favAppBar extends StatelessWidget {
               },
               icon: Icon(Icons.arrow_back_ios, color: Colors.white)),
           const Spacer(flex: 1),
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(left: 16),
             child: Text(
-              "Favorites",
+              text,
               style: TextStyle(fontSize: 24, color: Colors.white),
             ),
           ),

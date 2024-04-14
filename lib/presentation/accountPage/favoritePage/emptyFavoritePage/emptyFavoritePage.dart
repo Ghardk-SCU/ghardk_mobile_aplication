@@ -1,5 +1,5 @@
 import 'package:final_project/core/utilits/constant.dart';
-import 'package:final_project/presentation/accountPage/favoritePage/favAppBar/favAppBar.dart';
+import 'package:final_project/presentation/accountPage/widget/favAppBar/favAppBar.dart';
 import 'package:final_project/presentation/accountPage/favoritePage/favCategories/favCategories.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +13,7 @@ class emptyFavoritePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          favAppBar(),
+          customAccAppBar(text: "Favorites"),
           SizedBox(height: 5),
           favCategories(),
           Spacer(),

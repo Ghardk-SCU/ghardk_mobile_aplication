@@ -1,4 +1,4 @@
-import 'package:final_project/presentation/accountPage/favoritePage/favAppBar/favAppBar.dart';
+import 'package:final_project/presentation/accountPage/widget/favAppBar/favAppBar.dart';
 import 'package:final_project/presentation/accountPage/favoritePage/favCategories/favCategories.dart';
 import 'package:final_project/presentation/accountPage/favoritePage/favorite/favoriteItem/gridViewFavList.dart';
 import 'package:final_project/presentation/accountPage/favoritePage/favorite/filtterButton.dart';
@@ -12,7 +12,7 @@ class favoritePage extends StatelessWidget {
     return Scaffold(
         body: Column(
       children: [
-        favAppBar(),
+        customAccAppBar(text: "Favorites"),
         SizedBox(height: 10),
         favCategories(),
         //Center(child: favItem()),

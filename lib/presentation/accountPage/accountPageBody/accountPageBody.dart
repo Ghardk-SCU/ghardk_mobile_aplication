@@ -2,6 +2,7 @@ import 'package:final_project/core/utilits/forYouText.dart';
 import 'package:final_project/presentation/accountPage/accountPageBody/customListTile.dart';
 import 'package:final_project/presentation/accountPage/cart/cart.dart';
 import 'package:final_project/presentation/accountPage/favoritePage/favorite/favoritePage.dart';
+import 'package:final_project/presentation/accountPage/helpPage/helpPage.dart';
 import 'package:flutter/material.dart';
 
 class accountPageBody extends StatelessWidget {
@@ -55,7 +56,14 @@ class accountPageBody extends StatelessWidget {
                       icon: Icons.error_outline,
                       ontap: () {}),
                   customListTile(
-                      title: "Help", icon: Icons.help_outline, ontap: () {}),
+                      title: "Help",
+                      icon: Icons.help_outline,
+                      ontap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const helpPage()));
+                      }),
                   customListTile(
                       title: "Settings", icon: Icons.settings, ontap: () {}),
                 ],

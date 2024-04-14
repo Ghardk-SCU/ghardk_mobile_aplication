@@ -74,6 +74,7 @@ flutter:
     - assets/images/catogery/
     - assets/images/medal/
     - assets/images/FavItem/
+    - assets/images/helpItems/
     - assets/images/Logo/
     - assets/images/forgotPassword/
     - assets/images/advirsments/

@@ -42,7 +42,7 @@ class orderItem extends StatelessWidget {
                 endIndent: 25,
               ),
               const SizedBox(height: 10),
-              const Text('Total Cost: 86.32 EGP',
+              const Text('Total Cost: 87.36 EGP',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
               const SizedBox(height: 10),
               const Text('Number of Items: 3',

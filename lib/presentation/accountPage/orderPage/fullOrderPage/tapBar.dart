@@ -23,6 +23,9 @@ class tabBar extends StatelessWidget {
                   return orderItem();
                 },
               ),
+              Container(),
+              Container(),
+              Container(),
             ],
           ),
         ),

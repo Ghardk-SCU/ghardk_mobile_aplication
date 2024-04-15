@@ -10,7 +10,7 @@ class priceContainer extends StatelessWidget {
       children: [
         priceText(desc: 'Subtotal', price: 'EGP 62.34', isTotal: false),
         SizedBox(height: 5),
-        priceText(desc: 'EGP 62.34', price: 'EGP 20.00', isTotal: false),
+        priceText(desc: 'Shipping', price: 'EGP 20.00', isTotal: false),
         SizedBox(height: 5),
         priceText(desc: 'Tax', price: 'EGP 5.02', isTotal: false),
         SizedBox(height: 5),
@@ -43,12 +43,18 @@ class priceText extends StatelessWidget {
       children: [
         Text(desc,
             style: isTotal
-                ? TextStyle(fontSize: 23, fontWeight: FontWeight.w600)
-                : TextStyle(fontSize: 18)),
+                ? TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    color: kMainColor)
+                : TextStyle(fontSize: 18, color: kMainColor)),
         Text(price,
             style: isTotal
-                ? TextStyle(fontSize: 23, fontWeight: FontWeight.w600)
-                : TextStyle(fontSize: 18)),
+                ? TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    color: kMainColor)
+                : TextStyle(fontSize: 18, color: kMainColor)),
       ],
     );
   }

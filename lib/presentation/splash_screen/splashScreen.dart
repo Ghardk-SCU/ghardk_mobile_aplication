@@ -1,5 +1,4 @@
 import 'package:final_project/core/utilits/constant.dart';
-import 'package:final_project/presentation/mainPage/mainPage.dart';
 import 'package:flutter/material.dart';
 
 class splashScreen extends StatefulWidget {
@@ -12,27 +11,7 @@ class splashScreen extends StatefulWidget {
 AnimationController? _animationController;
 Animation<double>? fadinganimation;
 
-class _splashScreenState extends State<splashScreen>
-    with SingleTickerProviderStateMixin {
-  @override
-  void initState() {
-    super.initState();
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
-    _animationController?.repeat(reverse: true);
-
-    Future.delayed(Duration(seconds: 2), () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => mainPage()));
-    });
-  }
-
-  @override
-  void dispose() {
-    _animationController?.dispose();
-    super.dispose();
-  }
-
+class _splashScreenState extends State<splashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,9 +31,9 @@ class _splashScreenState extends State<splashScreen>
                 scale: 1.3,
                 child: Container(
                   width: 140,
-                  height: 260,
+                  height: 200,
                   child: Image.asset(
-                    'assets/images/LogoWhite.png',
+                    'assets/images/Logo/LogoWhite.png',
                     fit: BoxFit.fill,
                   ),
                 ),

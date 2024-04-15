@@ -11,21 +11,24 @@ class actionButton extends StatelessWidget {
   final VoidCallback ontap;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: ontap,
-      child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 24),
-        padding: EdgeInsets.symmetric(vertical: 12),
-        width: double.infinity,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: kMainColor,
-        ),
-        child: Text(
-          text,
-          style: TextStyle(
-              fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
-          textAlign: TextAlign.center,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 24),
+      child: InkWell(
+        onTap: ontap,
+        child: Container(
+          //margin: EdgeInsets.symmetric(horizontal: 24),
+          padding: EdgeInsets.symmetric(vertical: 12),
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: kMainColor,
+          ),
+          child: Text(
+            text,
+            style: TextStyle(
+                fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
+            textAlign: TextAlign.center,
+          ),
         ),
       ),
     );

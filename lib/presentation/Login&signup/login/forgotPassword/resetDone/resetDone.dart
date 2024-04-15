@@ -21,7 +21,11 @@ class resetDone extends StatelessWidget {
                 "Your password is changed. Keep it confidential for the safety of your account."),
         SizedBox(height: 20),
         SizedBox(height: 20),
-        actionButton(text: 'Done', ontap: () {}),
+        actionButton(
+            text: 'Done',
+            ontap: () {
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+            }),
         SizedBox(height: 50),
       ],
     );

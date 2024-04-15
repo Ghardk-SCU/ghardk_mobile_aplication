@@ -1,5 +1,4 @@
 import 'package:final_project/core/utilits/constant.dart';
-import 'package:final_project/presentation/Login&signup/loginAndSignupScreen/loginAndSignupScreen.dart';
 import 'package:final_project/presentation/accountPage/accountPage.dart';
 import 'package:final_project/presentation/homePage/homepage.dart';
 import 'package:final_project/presentation/topRatedPage/topRatedPage.dart';
@@ -79,10 +78,8 @@ List<BottomNavigationBarItem> itemss = const [
 
 const List<Widget> _screens = <Widget>[
   homePage(),
-  //Center(child: Text('Home1', style: TextStyle(fontSize: 30))),
   topRatedPage(),
-  loginAndSignupScreen(),
-  //Center(child: Text('Home3', style: TextStyle(fontSize: 30))),
+  Center(child: Text('Home3', style: TextStyle(fontSize: 30))),
   Center(child: Text('Home4', style: TextStyle(fontSize: 30))),
   accountPage(),
 ];

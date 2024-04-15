@@ -44,11 +44,20 @@ dependencies:
   image_picker: ^1.0.7
   motion_tab_bar: ^2.0.4
   page_transition: ^2.1.0
+  rename: ^3.0.2
   timeline_tile: ^2.0.0
   
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/ghrdk_icon/res/mipmap-xxxhdpi/ghrdk_icon.png"
+  adaptive_icon_background: "assets/images/ghrdk_icon/res/mipmap-xxxhdpi/ghrdk_icon_adaptive_back.png"
+  adaptive_icon_foreground: "assets/images/ghrdk_icon/res/mipmap-xxxhdpi/ghrdk_icon_adaptive_fore.png"
 
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -77,6 +86,8 @@ flutter:
     - assets/images/FavItem/
     - assets/images/helpItems/
     - assets/images/orderItems/
+    - assets/images/ghrdk_icon/
+    - assets/images/ghrdk_icon/res/mipmap-xxxhdpi/
     - assets/images/Logo/
     - assets/images/forgotPassword/
     - assets/images/advirsments/

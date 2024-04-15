@@ -14,18 +14,21 @@ class favItem extends StatefulWidget {
 class _favItemState extends State<favItem> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 1,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: Colors.white,
-        ),
-        child: Column(
-          children: [
-            upperItem(),
-            lowerItem(),
-          ],
+    return SizedBox(
+      width: 140,
+      child: Card(
+        elevation: 5,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: Colors.white,
+          ),
+          child: Column(
+            children: [
+              upperItem(),
+              lowerItem(),
+            ],
+          ),
         ),
       ),
     );
@@ -85,24 +88,21 @@ class lowerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.symmetric(horizontal: 6, vertical: 12),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         //-----------------------------------------------------------
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const SizedBox(
-              width: 120,
-              child: Text(
-                'Mini Camera Figure',
-                style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-                softWrap: true,
-              ),
+            Text(
+              'Mini Camera Figure',
+              style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              softWrap: true,
             ),
             InkWell(
               onTap: () {},

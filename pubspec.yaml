@@ -46,6 +46,7 @@ dependencies:
   motion_tab_bar: ^2.0.4
   page_transition: ^2.1.0
   rename: ^3.0.2
+  shared_preferences: ^2.2.3
   timeline_tile: ^2.0.0
   
 flutter_icons:

@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 
 class loginForm extends StatefulWidget {
-  const loginForm({super.key});
-
+  const loginForm(
+      {super.key,
+      required this.emailcontroller,
+      required this.passwordcontroller});
+  final TextEditingController emailcontroller;
+  final TextEditingController passwordcontroller;
   @override
   State<loginForm> createState() => _passwordInputState();
 }
 
 class _passwordInputState extends State<loginForm> {
   bool isVisable = false;
-  late String password, email;
   @override
   Widget build(BuildContext context) {
     return Column(children: [
       TextFormField(
-        onChanged: (value) => email = value,
+        controller: widget.emailcontroller,
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.only(left: 15),
@@ -28,7 +31,7 @@ class _passwordInputState extends State<loginForm> {
       ),
       const SizedBox(height: 20),
       TextFormField(
-        onChanged: (value) => password = value,
+        controller: widget.passwordcontroller,
         obscureText: !isVisable,
         keyboardType: TextInputType.name,
         decoration: InputDecoration(

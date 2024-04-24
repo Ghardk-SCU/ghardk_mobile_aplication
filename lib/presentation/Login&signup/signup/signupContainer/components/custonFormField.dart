@@ -1,30 +1,25 @@
 import 'package:final_project/presentation/Login&signup/signup/validition_email_and_password.dart';
 import 'package:flutter/material.dart';
 
-class customFormField extends StatefulWidget {
+class customFormField extends StatelessWidget {
   customFormField({
     super.key,
     required this.text,
-    required this.onsave,
+    required this.controller,
   });
   final String text;
-  final Function(String?) onsave;
-  @override
-  State<customFormField> createState() => _customFormFieldState();
-}
-
-class _customFormFieldState extends State<customFormField> {
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator: (value) {
         if (value!.isEmpty) return 'Field Required';
       },
-      onSaved: widget.onsave,
-      //keyboardType: TextInputType.emailAddress,
+      controller: controller,
+      keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.only(left: 15),
-        labelText: widget.text,
+        labelText: text,
         //hintText: 'Enter username',
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
@@ -37,7 +32,10 @@ class _customFormFieldState extends State<customFormField> {
 class emailForm extends StatefulWidget {
   emailForm({
     super.key,
+    required this.controller,
   });
+
+  final TextEditingController controller;
   @override
   State<emailForm> createState() => _emailFormState();
 }
@@ -47,6 +45,7 @@ class _emailFormState extends State<emailForm> {
   Widget build(BuildContext context) {
     return TextFormField(
       validator: (value) => validEmail(value!),
+      controller: widget.controller,
       //keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.only(left: 15),
@@ -61,21 +60,22 @@ class _emailFormState extends State<emailForm> {
 }
 
 class passwordForm extends StatefulWidget {
-  const passwordForm({super.key, required this.label});
+  const passwordForm(
+      {super.key, required this.label, required this.controller});
   final String label;
+
+  final TextEditingController controller;
   @override
   State<passwordForm> createState() => _passwordFormState();
 }
 
 class _passwordFormState extends State<passwordForm> {
   bool isVisable = false;
-  late String? password;
-
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator: (value) => validPassword(value!),
-      onSaved: (value) => password = value,
+      controller: widget.controller,
       obscureText: !isVisable,
       keyboardType: TextInputType.name,
       decoration: InputDecoration(

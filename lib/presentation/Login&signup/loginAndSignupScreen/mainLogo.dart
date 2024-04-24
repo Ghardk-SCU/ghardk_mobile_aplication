@@ -7,17 +7,19 @@ class mainLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipPath(
-      clipper: CustomClipPath1(),
-      child: Container(
-        padding: EdgeInsets.only(top: 20),
-        width: double.infinity,
-        height: MediaQuery.of(context).size.height / 2.4,
-        color: Colors.white,
-        child: Image.asset(
-          'assets/images/Logo/completeLogoMainColor.png',
-          fit: BoxFit.none,
-          scale: 1.3,
+    return Center(
+      child: ClipPath(
+        clipper: CustomClipPath1(),
+        child: Container(
+          padding: EdgeInsets.only(top: 20),
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height / 2.4,
+          color: Colors.white,
+          child: Image.asset(
+            'assets/images/Logo/completeLogoMainColor.png',
+            fit: BoxFit.none,
+            scale: 1.3,
+          ),
         ),
       ),
     );

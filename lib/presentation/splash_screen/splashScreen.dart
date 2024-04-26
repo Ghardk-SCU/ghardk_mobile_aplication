@@ -46,9 +46,6 @@ class _splashScreenState extends State<splashScreen> {
   }
 }
 
-
-
-
 /*child: Center(
           child: Transform.scale(
             scale: 1.3,

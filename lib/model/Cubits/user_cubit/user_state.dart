@@ -31,8 +31,8 @@ final class userInfoInitial extends UserState {}
 final class userInfoLoading extends UserState {}
 
 final class userInfosuccess extends UserState {
-  // final userInfoModel user;
-  // userInfosuccess({required this.user});
+  final userModel user;
+  userInfosuccess({required this.user});
 }
 
 final class userInfofaliure extends UserState {

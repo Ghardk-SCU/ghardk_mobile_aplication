@@ -91,7 +91,6 @@ class discountSecondContainer extends StatelessWidget {
   }
 }
 
-
 /*RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(

@@ -1,3 +1,4 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:final_project/core/utilits/constant.dart';
 import 'package:flutter/material.dart';
 
@@ -21,20 +22,29 @@ class customDropDownButton extends StatefulWidget {
 
 class _customDropDownButtonState extends State<customDropDownButton> {
   Widget build(BuildContext context) {
-    return DropdownButtonFormField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(width: 1)),
-        ),
-        hint: Text(widget.text,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-        value: widget.value,
-        items: widget.items,
-        elevation: 10,
-        isExpanded: true,
-        dropdownColor: kScaffoldColor,
-        padding: EdgeInsets.symmetric(vertical: 12),
-        onChanged: widget.onChanged);
+    return DropdownButtonHideUnderline(
+        child: DropdownButton2(
+      hint: Text(widget.text,
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+      value: widget.value,
+      items: widget.items,
+      isExpanded: true,
+      isDense: true,
+      onChanged: widget.onChanged,
+      buttonStyleData: ButtonStyleData(
+          height: 45,
+          padding: EdgeInsets.all(8),
+          elevation: 5,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(width: 0.7),
+            color: kScaffoldColor,
+          )),
+      dropdownStyleData: DropdownStyleData(
+          elevation: 5,
+          decoration: BoxDecoration(
+            color: kScaffoldColor,
+          )),
+    ));
   }
 }

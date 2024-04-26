@@ -32,7 +32,6 @@ class OTP extends StatelessWidget {
   }
 }
 
-
 /*
 Container(
               height: 64,

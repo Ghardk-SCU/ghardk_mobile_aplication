@@ -69,7 +69,6 @@ class _discountContaierState extends State<discountContaier> {
   }
 }
 
-
 /*Container(
              width: widthMainContainer,
              height: heightMainContainer,

@@ -28,8 +28,6 @@ class categoriesListView extends StatelessWidget {
   }
 }
 
- 
-
 /* import 'package:final_project/presentation/homePage/homePageBody/Categories_list_view/categoriesItem.dart';
 import 'package:flutter/material.dart';
 

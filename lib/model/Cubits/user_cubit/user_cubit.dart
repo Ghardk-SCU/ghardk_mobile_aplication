@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:final_project/core/api/end_ponits.dart';
 import 'package:final_project/core/shared/network/local_network.dart';
+import 'package:final_project/model/Models/userModel.dart';
 import 'package:http/http.dart' as http;
 part 'user_state.dart';
 
@@ -41,8 +42,6 @@ class UserCubit extends Cubit<UserState> {
         await http.post(Uri.parse('${EndPoint.baseUrl}${EndPoint.signUp}'),
             headers: {"Content-Type": "application/json"},
             body: jsonEncode({
-              //ApiKey.name: '${fristName} ${lastName}',
-
               ApiKey.firstName: fristName,
               ApiKey.lastName: lastName,
               ApiKey.email: email,
@@ -64,15 +63,14 @@ class UserCubit extends Cubit<UserState> {
   Future getUserProfile() async {
     emit(userInfoLoading());
     String? token = await CacheNetwork.getCacheData(key: 'token');
-    final response =
-        await http.get(Uri.parse('${EndPoint.baseUrl}users/Me'), headers: {
+    final response = await http
+        .get(Uri.parse('${EndPoint.baseUrl}${EndPoint.getUser}'), headers: {
       'Authorization': 'Bearer $token',
     });
-
     var responseBody = jsonDecode(response.body);
     if (responseBody[ApiKey.status] == 'success') {
-      // userInfoModel user = userInfoModel.fromJson(responseBody);
-      //emit(userInfosuccess(user: user));
+      userModel user = userModel.fromJson(responseBody);
+      emit(userInfosuccess(user: user));
     } else {
       emit(userInfofaliure(errMsg: responseBody[ApiKey.message]));
     }

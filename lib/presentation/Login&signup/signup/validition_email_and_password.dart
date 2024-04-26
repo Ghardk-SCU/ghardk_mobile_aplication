@@ -21,6 +21,10 @@ String? validEmail(String x) {
   if (!x.contains('@')) return 'Unvalid Email';
 }
 
+String? validnationalId(String x) {
+  if (x.length != 14) return 'Please write a correct National ID';
+}
+
 String? confirmationPassword(String x) {
   String? temp;
   if (temp != x) return 'Confirmation password not like password';

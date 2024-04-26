@@ -3,8 +3,12 @@ import 'package:final_project/core/utilits/customCircleAvatar.dart';
 import 'package:flutter/material.dart';
 
 class customAccountAppBar extends StatelessWidget {
-  const customAccountAppBar({super.key});
-
+  const customAccountAppBar(
+      {super.key,
+      required this.name,
+      required this.img,
+      required this.location});
+  final String name, img, location;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +26,7 @@ class customAccountAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const customCircleAvatar(image: 'assets/images/nasr.png'),
+          customCircleAvatar(image: img),
           const SizedBox(
             height: 40,
             child: VerticalDivider(
@@ -30,19 +34,18 @@ class customAccountAppBar extends StatelessWidget {
               thickness: 2,
             ),
           ),
-          const Column(
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Mohammed Nasr',
-                  style: TextStyle(fontSize: 12, color: Colors.black)),
+              Text(name, style: TextStyle(fontSize: 12, color: Colors.black)),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.location_on_outlined,
                     size: 15,
                   ),
-                  Text('Cairo, Helwan',
+                  Text(location,
                       style: TextStyle(fontSize: 10, color: Colors.black)),
                 ],
               ),
@@ -51,7 +54,7 @@ class customAccountAppBar extends StatelessWidget {
           Spacer(),
           IconButton(
               onPressed: () {},
-              icon: Icon(
+              icon: const Icon(
                 Icons.edit_outlined,
                 size: 25,
               )),

@@ -46,9 +46,4 @@ class orderInformation extends StatelessWidget {
       ),
     );
   }
-}
-
-
-
-
-/*  */
+} /*  */

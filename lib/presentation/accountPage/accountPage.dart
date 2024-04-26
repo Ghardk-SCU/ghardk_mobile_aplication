@@ -1,7 +1,8 @@
-import 'package:final_project/core/utilits/forYouText.dart';
+import 'package:final_project/model/Cubits/user_cubit/user_cubit.dart';
 import 'package:final_project/presentation/accountPage/accountPageBody/accountPageBody.dart';
 import 'package:final_project/presentation/accountPage/customAppBar/customAccountAppBar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class accountPage extends StatelessWidget {
   const accountPage({super.key});
@@ -9,12 +10,34 @@ class accountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          customAccountAppBar(),
-          accountPageBody(),
-        ],
+      body: BlocConsumer<UserCubit, UserState>(
+        listener: (context, state) {
+          if (state is userInfofaliure) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.errMsg),
+              ),
+            );
+          }
+        },
+        builder: (context, state) {
+          return state is userInfoLoading
+              ? Center(child: CircularProgressIndicator())
+              : state is userInfosuccess
+                  ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        customAccountAppBar(
+                          name:
+                              '${state.user.firstName} ${state.user.lastName}',
+                          img: 'assets/images/nasr.png',
+                          location: 'Cairo, Helwan',
+                        ),
+                        accountPageBody(),
+                      ],
+                    )
+                  : Container();
+        },
       ),
     );
   }

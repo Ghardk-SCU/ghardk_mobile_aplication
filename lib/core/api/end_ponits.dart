@@ -2,6 +2,7 @@ class EndPoint {
   static String baseUrl = "https://ghrdk-14vh.onrender.com/api/v1/";
   static String login = "users/login";
   static String signUp = "users/signup";
+  static String getUser = "users/1";
 }
 
 class ApiKey {
@@ -21,5 +22,6 @@ class ApiKey {
   static String phone = "phone";
   static String passwordConfirm = "password_confirm";
   static String location = "location";
+  static String image = "img";
   static String profilePic = "img";
 }

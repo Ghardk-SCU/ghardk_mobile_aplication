@@ -23,6 +23,5 @@ class CacheNetwork {
 
   static Future<bool> clearData() async {
     return await sharedPref.clear();
-
   }
 }

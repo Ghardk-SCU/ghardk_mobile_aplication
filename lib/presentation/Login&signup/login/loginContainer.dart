@@ -23,7 +23,7 @@ class loginContainer extends StatelessWidget {
           var snackBar =
               SnackBar(content: Text('You have been Login successfully'));
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          //context.read<UserCubit>().getUserProfile();
+          context.read<UserCubit>().getUserProfile();
           Duration(milliseconds: 500);
           Get.to(() => mainPage());
         } else if (state is Loginfaliure) {

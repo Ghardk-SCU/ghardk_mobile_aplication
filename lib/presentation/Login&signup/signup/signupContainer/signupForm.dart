@@ -5,7 +5,6 @@ import 'package:final_project/presentation/Login&signup/signup/signupContainer/c
 import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/custonFormField.dart';
 import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/loginButton.dart';
 import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/signupButton.dart';
-import 'package:final_project/presentation/mainPage/mainPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -53,7 +52,24 @@ class _signupFormState extends State<signupForm> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              emailForm(controller: emailController),
+              Row(
+                children: [
+                  Flexible(
+                    child: customFormField(
+                      text: 'First Name',
+                      controller: fristNameController,
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Flexible(
+                    child: customFormField(
+                      text: 'Second Name',
+                      controller: lastNameController,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -85,29 +101,14 @@ class _signupFormState extends State<signupForm> {
                   ),
                 ],
               ),
+              SizedBox(height: 15),
               Visibility(
                 child: customFormField(
                     text: 'National ID', controller: nationalIdController),
                 visible: isvisable,
               ),
               if (isvisable) SizedBox(height: 15),
-              Row(
-                children: [
-                  Flexible(
-                    child: customFormField(
-                      text: 'First Name',
-                      controller: fristNameController,
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  Flexible(
-                    child: customFormField(
-                      text: 'Second Name',
-                      controller: lastNameController,
-                    ),
-                  ),
-                ],
-              ),
+              emailForm(controller: emailController),
               const SizedBox(height: 15),
               passwordForm(label: 'Password', controller: passwordController),
               const SizedBox(height: 15),

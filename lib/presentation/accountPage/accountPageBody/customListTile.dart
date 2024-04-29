@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class customListTile extends StatelessWidget {
-  const customListTile(
+   customListTile(
       {super.key,
       required this.title,
-      required this.icon,
+      this.icon = Icons.abc ,
       required this.ontap});
   final String title;
-  final IconData icon;
+  IconData icon;
   final VoidCallback ontap;
   @override
   Widget build(BuildContext context) {

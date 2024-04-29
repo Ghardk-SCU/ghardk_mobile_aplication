@@ -25,6 +25,7 @@ class _mainPageState extends State<mainPage> {
     _pageController.jumpToPage(i);
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

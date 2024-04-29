@@ -75,4 +75,8 @@ class UserCubit extends Cubit<UserState> {
       emit(userInfofaliure(errMsg: responseBody[ApiKey.message]));
     }
   }
+
+  Future? getUserAddress () {
+     
+  }
 }

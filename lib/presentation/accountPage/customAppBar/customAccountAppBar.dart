@@ -1,6 +1,8 @@
 import 'package:final_project/core/utilits/constant.dart';
 import 'package:final_project/core/utilits/customCircleAvatar.dart';
+import 'package:final_project/presentation/accountPage/editPage/editPage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class customAccountAppBar extends StatelessWidget {
   const customAccountAppBar(
@@ -53,7 +55,9 @@ class customAccountAppBar extends StatelessWidget {
           ),
           Spacer(),
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                 Get.to(const editPage()) ;
+              },
               icon: const Icon(
                 Icons.edit_outlined,
                 size: 25,

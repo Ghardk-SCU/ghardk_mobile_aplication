@@ -1,10 +1,8 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
-import 'package:final_project/model/Cubits/category_cubit/category_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-class buttonsIntabBar extends StatelessWidget {
-  const buttonsIntabBar({
+class BuyerbuttonsIntabBar extends StatelessWidget {
+  const BuyerbuttonsIntabBar({
     super.key,
     required this.tabs,
   });
@@ -21,7 +19,7 @@ class buttonsIntabBar extends StatelessWidget {
         children: [
           ButtonsTabBar(
             contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-            physics: NeverScrollableScrollPhysics(),
+            physics: BouncingScrollPhysics(),
             tabs: tabs,
             borderWidth: 1,
             borderColor: Color(0xff2a2c41),

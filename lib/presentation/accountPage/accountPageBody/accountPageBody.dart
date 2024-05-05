@@ -1,4 +1,5 @@
 import 'package:final_project/core/utilits/forYouText.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/buyerPage.dart';
 import 'package:final_project/presentation/accountPage/accountPageBody/customListTile.dart';
 import 'package:final_project/presentation/accountPage/cart/cart.dart';
 import 'package:final_project/presentation/accountPage/favoritePage/favorite/favoritePage.dart';
@@ -6,6 +7,7 @@ import 'package:final_project/presentation/accountPage/helpPage/helpPage.dart';
 import 'package:final_project/presentation/accountPage/orderPage/emptyOrderPage/emptyOrderPage.dart';
 import 'package:final_project/presentation/accountPage/orderPage/fullOrderPage/fullOrderPage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class accountPageBody extends StatelessWidget {
   const accountPageBody({super.key});
@@ -37,7 +39,9 @@ class accountPageBody extends StatelessWidget {
                   customListTile(
                       title: "Profile",
                       icon: Icons.person_outline,
-                      ontap: () {}),
+                      ontap: () {
+                        Get.to(buyerPage());
+                      }),
                   customListTile(
                       title: "Favorites",
                       icon: Icons.favorite,

@@ -22,7 +22,6 @@ Future<void> main() async {
         create: (context) => CategoryCubit()..getAllCategories(),
       ),
     ],
-    
     child: MyApp(),
   ));
 }
@@ -33,12 +32,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        theme: ThemeData.light().copyWith(
-            scaffoldBackgroundColor: kScaffoldColor,
-            textTheme:
-                GoogleFonts.nunitoSansTextTheme(Theme.of(context).textTheme)),
-        debugShowCheckedModeBanner: false,
-        home: loginAndSignupScreen(), ) ;
-        //userToken != null ? const mainPage() : loginAndSignupScreen());
+      theme: ThemeData.light().copyWith(
+          scaffoldBackgroundColor: kScaffoldColor,
+          textTheme:
+              GoogleFonts.nunitoSansTextTheme(Theme.of(context).textTheme)),
+      debugShowCheckedModeBanner: false,
+      home: loginAndSignupScreen(),
+    );
+    //userToken != null ? const mainPage() : loginAndSignupScreen());
   }
 }

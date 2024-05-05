@@ -12,23 +12,23 @@ class homePage extends StatefulWidget {
 }
 
 class _homePageState extends State<homePage> {
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Color.fromARGB(255, 244, 244, 248),
-        body: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              appBar(),
-              SizedBox(height: 30),
-              customHeader(),
-              SizedBox(height: 20),
-              homePageBody(),
-            ],
-          ),
-        ));
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: Color.fromARGB(255, 244, 244, 248),
+          body: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 20),
+                customHeader(),
+                SizedBox(height: 20),
+                homePageBody(),
+              ],
+            ),
+          )),
+    );
   }
 }

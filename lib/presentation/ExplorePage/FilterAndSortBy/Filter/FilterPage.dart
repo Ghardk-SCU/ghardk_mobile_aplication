@@ -15,7 +15,7 @@ class filterPage extends StatefulWidget {
 
 class _filterPageState extends State<filterPage> {
   int CurrentOption = 0;
-  double _startValue = 0.0, _endValue = 150.0;
+  double _startValue = 20.0, _endValue = 150.0;
   @override
   Widget build(BuildContext context) {
     List<String> categories = BlocProvider.of<CategoryCubit>(context)
@@ -77,7 +77,7 @@ class _filterPageState extends State<filterPage> {
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.black)),
-              const Text('${10} - ${150} EGP',
+              Text('${_startValue.round()} - ${_endValue.round()} EGP',
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
@@ -88,8 +88,8 @@ class _filterPageState extends State<filterPage> {
           RangeSlider(
             activeColor: Colors.black,
             inactiveColor: Colors.grey,
-            min: _startValue,
-            max: _endValue,
+            min: 0,
+            max: 10000,
             values: RangeValues(_startValue, _endValue),
             onChanged: (values) {
               setState(() {

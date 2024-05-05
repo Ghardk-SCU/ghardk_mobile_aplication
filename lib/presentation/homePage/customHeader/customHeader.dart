@@ -49,7 +49,6 @@ class customHeader extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                beSellarButton(),
               ],
             ),
             Expanded(child: Image.asset("assets/images/homepageimage.jpg"))

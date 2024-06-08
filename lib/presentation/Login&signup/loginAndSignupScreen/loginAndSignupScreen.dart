@@ -19,7 +19,6 @@ class loginAndSignupScreen extends StatelessWidget {
           Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
             const SizedBox(height: 30),
             Image.asset('assets/images/WelcomeImg.png'),
-            const SizedBox(height: 30),
             const loginAndSignupButtons(),
             const SizedBox(height: 20),
             const skipItNowButton(),

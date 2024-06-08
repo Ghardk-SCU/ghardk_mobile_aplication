@@ -1,6 +1,3 @@
-import 'dart:ffi';
-
-import 'package:awesome_select/awesome_select.dart';
 import 'package:final_project/model/Cubits/category_cubit/category_cubit.dart';
 import 'package:final_project/presentation/ExplorePage/FilterAndSortBy/Widgets/customDivider.dart';
 import 'package:flutter/material.dart';

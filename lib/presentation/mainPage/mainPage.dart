@@ -1,6 +1,7 @@
 import 'package:final_project/core/utilits/constant.dart';
 import 'package:final_project/presentation/ExplorePage/ExplorePage.dart';
 import 'package:final_project/presentation/accountPage/accountPage.dart';
+import 'package:final_project/presentation/cartPage/cart/cartFull.dart';
 import 'package:final_project/presentation/homePage/homepage.dart';
 import 'package:final_project/presentation/topRatedPage/topRatedPage.dart';
 import 'package:flutter/material.dart';
@@ -81,6 +82,6 @@ const List<Widget> _screens = <Widget>[
   homePage(),
   topRatedPage(),
   ExplorePage(),
-  Center(child: Text('Home4', style: TextStyle(fontSize: 30))),
+  cartFull(),
   accountPage(),
 ];

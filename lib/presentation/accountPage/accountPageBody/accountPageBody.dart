@@ -65,10 +65,6 @@ class accountPageBody extends StatelessWidget {
                       icon: Icons.notifications,
                       ontap: () {}),
                   customListTile(
-                      title: "About us",
-                      icon: Icons.error_outline,
-                      ontap: () {}),
-                  customListTile(
                       title: "Help",
                       icon: Icons.help_outline,
                       ontap: () {

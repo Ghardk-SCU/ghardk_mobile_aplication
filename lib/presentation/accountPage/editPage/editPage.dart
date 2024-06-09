@@ -14,29 +14,30 @@ class editPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column (children: [
-           const customAccAppBar(text: 'Edit') ,
-           SizedBox(height: 30), 
-           customListTile(
-            title: 'Account Info',
-             ontap: (){
-               Get.to(const accountInfo()) ;
+      body: Column(
+        children: [
+          const customAccAppBar(text: 'Edit'),
+          SizedBox(height: 30),
+          customListTile(
+              title: 'Account Info',
+              ontap: () {
+                Get.to(const accountInfo());
               },
               icon: Icons.person),
-                customListTile(title: 'Addresses',
-                ontap: (){
-                  Get.to(const AdressesEmpty()) ;
-                },
-                icon: Icons.share_location
-             ),
-           customListTile(
-              title: 'Change Email',
-              ontap: (){
-                Get.to(const changePassword()) ;
+          customListTile(
+              title: 'Addresses',
+              ontap: () {
+                Get.to(const AdressesEmpty());
               },
-              icon: Icons.mail_outline
-             ),
-        ],),
+              icon: Icons.share_location),
+          customListTile(
+              title: 'Change Password',
+              ontap: () {
+                Get.to(const changePassword());
+              },
+              icon: Icons.mail_outline),
+        ],
+      ),
     );
   }
 }

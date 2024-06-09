@@ -10,34 +10,36 @@ class accountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocConsumer<UserCubit, UserState>(
-        listener: (context, state) {
-          if (state is userInfofaliure) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(state.errMsg),
-              ),
-            );
-          }
-        },
-        builder: (context, state) {
-          return state is userInfoLoading
-              ? Center(child: CircularProgressIndicator())
-              : state is userInfosuccess
-                  ? Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        customAccountAppBar(
-                          name:
-                              '${state.user.firstName} ${state.user.lastName}',
-                          img: 'assets/images/nasr.png',
-                          location: 'Cairo, Helwan',
-                        ),
-                        accountPageBody(),
-                      ],
-                    )
-                  : Container();
-        },
+      body: SafeArea(
+        child: BlocConsumer<UserCubit, UserState>(
+          listener: (context, state) {
+            if (state is userInfofaliure) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(state.errMsg),
+                ),
+              );
+            }
+          },
+          builder: (context, state) {
+            return state is userInfoLoading
+                ? Center(child: CircularProgressIndicator())
+                : state is userInfosuccess
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          customAccountAppBar(
+                            name:
+                                '${state.user.firstName} ${state.user.lastName}',
+                            img: 'assets/images/nasr.png',
+                            location: 'Cairo, Helwan',
+                          ),
+                          accountPageBody(),
+                        ],
+                      )
+                    : Container();
+          },
+        ),
       ),
     );
   }

@@ -30,7 +30,7 @@ class accountPageBody extends StatelessWidget {
                 )),
             const SizedBox(height: 10),
             SizedBox(
-              height: MediaQuery.sizeOf(context).height - 420,
+              height: MediaQuery.sizeOf(context).height - 444,
               child: ListView(
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,

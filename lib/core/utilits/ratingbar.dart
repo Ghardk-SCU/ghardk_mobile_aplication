@@ -7,10 +7,12 @@ class rating extends StatefulWidget {
       {super.key,
       required this.ratenum,
       required this.itemsize,
-      required this.itempadding});
+      required this.itempadding,
+      required this.itemcount});
   final double ratenum;
   final double itemsize;
   final double itempadding;
+  final int itemcount;
   @override
   State<rating> createState() => _ratingState();
 }
@@ -26,7 +28,7 @@ class _ratingState extends State<rating> {
       ignoreGestures: true,
       initialRating: widget.ratenum,
       allowHalfRating: true,
-      itemCount: 5,
+      itemCount: widget.itemcount,
       direction: Axis.horizontal,
       ratingWidget: RatingWidget(
         full: const Icon(Icons.star, color: orange_stars),

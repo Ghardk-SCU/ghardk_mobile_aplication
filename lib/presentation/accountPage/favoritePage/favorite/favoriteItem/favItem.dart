@@ -146,6 +146,7 @@ class lowerItem extends StatelessWidget {
                   fontWeight: FontWeight.w500),
             ),
             rating(
+              itemcount: 5,
               ratenum: 2.5,
               itemsize: 14,
               itempadding: 0,

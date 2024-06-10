@@ -7,42 +7,48 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class categoryListView extends StatelessWidget {
   categoryListView({super.key});
   @override
-
-    Widget build(BuildContext context) {
-    final cubit = BlocProvider.of<CategoryCubit>(context) ;
-    List<Tab> names = cubit.categories.map((category) => Tab(text: category.name)).toList();
+  Widget build(BuildContext context) {
+    final cubit = BlocProvider.of<CategoryCubit>(context);
+    List<Tab> names =
+        cubit.categories.map((category) => Tab(text: category.name)).toList();
     return BlocConsumer<CategoryCubit, CategoryState>(
       listener: (context, state) {
-         if(state is CategoryFailure){
+        if (state is CategoryFailure) {
           var snackBar = SnackBar(content: Text('${state.errMsg}'));
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
         }
       },
       builder: (context, state) {
-       return state is CategorySucsses ? DefaultTabController(
-          length: cubit.categories.length,  
-          child: Column(
-            children: [
-            
-              buttonsIntabBar(tabs: names,),
-              SizedBox(
-                height: 190,
-                child: TabBarView(
-                  children: [
-                    menuListView(),
-                    Container(),
-                    Container(),
-                    Container(),
-                  ],
-                ),)
-            ],
-          ),
-        ) : Container() ; 
+        return state is CategoryLoading
+            ? const Center(child: CircularProgressIndicator())
+            : state is CategorySucsses
+                ? DefaultTabController(
+                    length: cubit.categories.length,
+                    child: Column(
+                      children: [
+                        buttonsIntabBar(
+                          tabs: names,
+                        ),
+                        SizedBox(
+                          height: 190,
+                          child: TabBarView(
+                            children: [
+                              menuListView(),
+                              Container(),
+                              Container(),
+                              Container(),
+                              Container(),
+                              Container(),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                : Container();
       },
-    ) ;
-      
+    );
   }
- 
 }
 
 

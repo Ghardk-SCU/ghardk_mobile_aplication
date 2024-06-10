@@ -64,6 +64,7 @@ class offerContainerInfo extends StatelessWidget {
                             const TextStyle(fontSize: 9, color: Colors.black),
                       ),
                       rating(
+                          itemcount: 5,
                           ratenum: rateRating.toDouble(),
                           itemsize: 14,
                           itempadding: 0),

@@ -14,7 +14,7 @@ class ratingForBuyer extends StatelessWidget {
           '0.5 (1023)',
           style: TextStyle(fontSize: 14),
         ),
-        rating(ratenum: 0.5, itemsize: 20, itempadding: 0),
+        rating(ratenum: 0.5, itemsize: 20, itempadding: 0, itemcount: 5),
       ],
     );
   }

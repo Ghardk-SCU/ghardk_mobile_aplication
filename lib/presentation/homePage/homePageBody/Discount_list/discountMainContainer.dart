@@ -60,7 +60,8 @@ class _discountMainContainerState extends State<discountMainContainer> {
                           fontWeight: FontWeight.w300,
                           color: Colors.grey)),
                 ),
-                rating(ratenum: 3.5, itemsize: 10, itempadding: 0),
+                rating(
+                    ratenum: 3.5, itemsize: 10, itempadding: 0, itemcount: 5),
                 ElevatedButton(
                   onPressed: () {
                     setState(() {

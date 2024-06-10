@@ -2,7 +2,7 @@ name: final_project
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.1.5 <4.0.0'
+  sdk: ">=3.1.5 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  autoscale_tabbarview: ^1.0.2
   awesome_select: ^6.0.0
   bloc: ^8.1.3
   buttons_tabbar: ^1.3.8
@@ -49,7 +50,7 @@ dependencies:
   rename: ^3.0.2
   shared_preferences: ^2.2.3
   timeline_tile: ^2.0.0
-  
+
 flutter_icons:
   android: true
   ios: true
@@ -57,10 +58,8 @@ flutter_icons:
   adaptive_icon_background: "assets/images/ghrdk_icon/res/mipmap-xxxhdpi/ghrdk_icon_adaptive_back.png"
   adaptive_icon_foreground: "assets/images/ghrdk_icon/res/mipmap-xxxhdpi/ghrdk_icon_adaptive_fore.png"
 
-
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
-
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -75,7 +74,6 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -87,6 +85,7 @@ flutter:
     - assets/images/catogery/
     - assets/images/medal/
     - assets/images/FavItem/
+    - assets/images/Cloth_Bag/
     - assets/images/helpItems/
     - assets/images/orderItems/
     - assets/images/ghrdk_icon/

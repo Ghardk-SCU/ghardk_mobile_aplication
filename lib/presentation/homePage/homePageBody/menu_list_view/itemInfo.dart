@@ -73,7 +73,10 @@ class ItemInfo extends StatelessWidget {
                                       fontSize: 9, color: Colors.black),
                                 ),
                                 rating(
-                                    ratenum: 3.5, itemsize: 12, itempadding: 0),
+                                    ratenum: 3.5,
+                                    itemsize: 12,
+                                    itempadding: 0,
+                                    itemcount: 5),
                               ],
                             ),
                           ],

@@ -56,6 +56,7 @@ class ExploreCardDetails extends StatelessWidget {
                     style: const TextStyle(fontSize: 9, color: Colors.black),
                   ),
                   rating(
+                      itemcount: 5,
                       ratenum: rateRating.toDouble(),
                       itemsize: 12,
                       itempadding: 0),

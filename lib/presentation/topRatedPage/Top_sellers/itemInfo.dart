@@ -66,6 +66,7 @@ class _itemInfoState extends State<itemInfo> {
                   style: TextStyle(fontSize: 9, color: kMainColor),
                 ),
                 rating(
+                  itemcount: 5,
                   ratenum: 1.5,
                   itemsize: 14,
                   itempadding: 0,

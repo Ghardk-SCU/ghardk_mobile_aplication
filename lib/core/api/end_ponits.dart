@@ -3,6 +3,10 @@ class EndPoint {
   static String login = "users/login";
   static String signUp = "users/signup";
   static String getUser = "users/1";
+  static String getDefaultAddress = "defaultAddress";
+  static String getAllAddress = "addresses/";
+  static String addAddress = "addresses/";
+  static String getAllCountries = "countries/";
 }
 
 class ApiKey {

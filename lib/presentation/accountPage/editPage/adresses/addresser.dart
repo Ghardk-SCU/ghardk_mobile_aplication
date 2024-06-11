@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
-class addresses extends StatelessWidget {
-  const addresses({super.key});
+class addressesPage extends StatelessWidget {
+  const addressesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Container(),
+    );
   }
 }

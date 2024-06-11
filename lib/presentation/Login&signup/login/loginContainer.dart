@@ -1,4 +1,6 @@
 import 'package:final_project/core/utilits/constant.dart';
+import 'package:final_project/model/Cubits/Address_cubit/address_cubit.dart';
+import 'package:final_project/model/Cubits/category_cubit/category_cubit.dart';
 import 'package:final_project/model/Cubits/user_cubit/user_cubit.dart';
 import 'package:final_project/presentation/Login&signup/login/components/forgotPasswordButton.dart';
 import 'package:final_project/presentation/Login&signup/login/components/loginButton.dart';
@@ -24,8 +26,9 @@ class loginContainer extends StatelessWidget {
               SnackBar(content: Text('You have been Login successfully'));
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
           context.read<UserCubit>().getUserProfile();
+          context.read<AddressCubit>().getAllCountries();
           Duration(milliseconds: 500);
-          Get.to(() => mainPage());
+          Get.off(() => mainPage());
         } else if (state is Loginfaliure) {
           var snackBar = SnackBar(content: Text('${state.errMsg}'));
           ScaffoldMessenger.of(context).showSnackBar(snackBar);

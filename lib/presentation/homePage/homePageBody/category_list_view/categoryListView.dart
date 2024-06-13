@@ -9,8 +9,6 @@ class categoryListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<CategoryCubit>(context);
-    List<Tab> names =
-        cubit.categories.map((category) => Tab(text: category.name)).toList();
     return BlocConsumer<CategoryCubit, CategoryState>(
       listener: (context, state) {
         if (state is CategoryFailure) {
@@ -19,33 +17,35 @@ class categoryListView extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        return state is CategoryLoading
-            ? const Center(child: CircularProgressIndicator())
-            : state is CategorySucsses
-                ? DefaultTabController(
-                    length: cubit.categories.length,
-                    child: Column(
-                      children: [
-                        buttonsIntabBar(
-                          tabs: names,
-                        ),
-                        SizedBox(
-                          height: 190,
-                          child: TabBarView(
-                            children: [
-                              menuListView(),
-                              Container(),
-                              Container(),
-                              Container(),
-                              Container(),
-                              Container(),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-                : Container();
+        if (state is CategoryLoading) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (state is CategorySucsses) {
+          List<Tab> names = cubit.categories
+              .map((category) => Tab(text: category.name))
+              .toList();
+          return DefaultTabController(
+            length: cubit.categories.length,
+            child: Column(
+              children: [
+                buttonsIntabBar(tabs: names),
+                SizedBox(
+                  height: 190,
+                  child: TabBarView(
+                    children: [
+                      menuListView(),
+                      Container(),
+                      Container(),
+                      Container(),
+                      Container(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        } else {
+          return Container();
+        }
       },
     );
   }

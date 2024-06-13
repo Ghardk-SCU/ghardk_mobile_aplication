@@ -3,6 +3,7 @@ import 'package:final_project/core/utilits/ratingbar.dart';
 import 'package:final_project/presentation/ItemPage/itemPage.dart';
 import 'package:final_project/presentation/homePage/homePageBody/CustomButton.dart';
 import 'package:final_project/presentation/homePage/homePageBody/menu_list_view/itemInfo.dart';
+import 'package:final_project/presentation/topRatedPage/Top_sellers/itemInfo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -19,7 +20,7 @@ class _menuItemState extends State<menuItem> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Get.to(itemPage()),
+      onTap: () => Get.to(itemDetailsScreen()),
       child: Container(
         width: MediaQuery.of(context).size.width * 0.85,
         height: 190,

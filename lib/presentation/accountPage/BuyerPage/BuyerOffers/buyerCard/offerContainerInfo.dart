@@ -82,7 +82,7 @@ class offerContainerInfo extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(8)),
                   ),
                   child: const Icon(
-                    Icons.shopping_cart_outlined,
+                    Icons.edit_outlined,
                     color: Colors.white,
                   ),
                 ),

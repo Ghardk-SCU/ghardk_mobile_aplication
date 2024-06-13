@@ -19,7 +19,7 @@ class incrementAndDecrementButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(4),
         ),
         padding: EdgeInsets.all(6),
-        child: Icon(icon, color: Colors.white),
+        child: Icon(icon, color: Colors.white, size: 16),
       ),
     );
   }

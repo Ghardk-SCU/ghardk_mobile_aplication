@@ -35,7 +35,7 @@ class userModel {
       role: json['data']['user']['${ApiKey.role}'],
       createdAt: json['data']['user']['createdAt'],
       updatedAt: json['data']['user']['updatedAt'],
-      dob: json['data']['user']['dob'],
+      dob: json['data']['user']['dob'] ?? "",
       gender: json['data']['user']['${ApiKey.gender}'],
       img: json['data']['user']['${ApiKey.image}'],
       active: json['data']['user']['active'],

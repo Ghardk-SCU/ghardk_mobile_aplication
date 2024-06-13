@@ -27,7 +27,7 @@ class loginAndSignupButtons extends StatelessWidget {
                   PageTransition(
                     childCurrent: loginAndSignupScreen(),
                     type: PageTransitionType.leftToRightJoined,
-                    duration: Duration(milliseconds: 600),
+                    duration: Duration(milliseconds: 300),
                     child: loginPage(),
                   ));
             },
@@ -54,7 +54,7 @@ class loginAndSignupButtons extends StatelessWidget {
                   PageTransition(
                     childCurrent: loginAndSignupScreen(),
                     type: PageTransitionType.rightToLeftJoined,
-                    duration: Duration(milliseconds: 600),
+                    duration: Duration(milliseconds: 300),
                     child: signupPage(),
                   ));
             },

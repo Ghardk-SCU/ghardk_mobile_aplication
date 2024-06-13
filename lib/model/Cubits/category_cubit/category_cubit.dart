@@ -26,8 +26,8 @@ class CategoryCubit extends Cubit<CategoryState> {
           CategoryModel.fromJson(category),
         );
       }
-      print("categories length  = ${categories.first}");
-      print(categories.map((category) => category.name).toList());
+      //print("categories length  = ${categories.first}");
+      //print(categories.map((category) => category.name).toList());
       emit(CategorySucsses());
     } else {
       emit(CategoryFailure(errMsg: responseBody[ApiKey.message]));

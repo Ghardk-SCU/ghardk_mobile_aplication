@@ -3,6 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:final_project/core/api/end_ponits.dart';
 import 'package:final_project/core/shared/network/local_network.dart';
 import 'package:final_project/model/Models/addressModel.dart';
+import 'package:final_project/presentation/accountPage/editPage/adresses/addresser.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;
 
@@ -58,6 +59,15 @@ class AddressCubit extends Cubit<AddressState> {
         allAddress.add(AddressModel.fromJson(address));
       }
       print("Address length  = ${allAddress.length}");
+      final addressCards = allAddress
+          .map((address) => AddressCard(
+                city: address.city,
+                description: address.description,
+                postalCode: address.postalCode,
+                StreetName: address.streetName,
+              ))
+          .toList();
+      print(addressCards);
       emit(getAllAddressSuccess());
     } else {
       emit(getAllAddressfaliure(errMsg: responseBody[ApiKey.message]));

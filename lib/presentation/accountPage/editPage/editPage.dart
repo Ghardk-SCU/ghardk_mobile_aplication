@@ -16,7 +16,7 @@ class editPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool foundCountry =
-        BlocProvider.of<AddressCubit>(context).allcountries.length != 0
+        BlocProvider.of<AddressCubit>(context).allAddress.length != 0
             ? true
             : false;
 
@@ -34,10 +34,9 @@ class editPage extends StatelessWidget {
           customListTile(
               title: 'Addresses',
               ontap: () {
-                /* foundCountry
-                    ? Get.to(const addressesPage())
-                    : Get.to(const AdressesEmpty()); */
-                Get.to(const AdressesEmpty());
+                foundCountry
+                    ? Get.to(() => const addressesPage())
+                    : Get.to(() => const AdressesEmpty());
               },
               icon: Icons.share_location),
           customListTile(
@@ -45,7 +44,7 @@ class editPage extends StatelessWidget {
               ontap: () {
                 Get.to(const changePassword());
               },
-              icon: Icons.mail_outline),
+              icon: Icons.password),
         ],
       ),
     );

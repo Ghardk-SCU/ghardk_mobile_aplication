@@ -6,8 +6,8 @@ import 'beSellarButton.dart';
 
 class customHeader extends StatelessWidget {
   customHeader({super.key});
-  String part1 = 'With Wrena Sho',
-      part2 = 'lk, you will get the chance to work using your favorite hobby.';
+  String part1 =
+      'With Ghrdk, you will get the chance to work using your favorite hobby.';
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,22 +30,13 @@ class customHeader extends StatelessWidget {
                 const Text("       skills to work!",
                     style: StylesData.titleStyle),
                 const SizedBox(height: 20),
-                Container(
-                  width: 180,
-                  child: RichText(
-                    text: TextSpan(
-                      style: StylesData.descStyle,
-                      children: [
-                        TextSpan(text: part1, style: StylesData.descStyle),
-                        WidgetSpan(
-                            child: Container(
-                                width: 10.0,
-                                child: Image.asset(
-                                  'assets/images/Logo/Logo.png',
-                                ))),
-                        TextSpan(text: part2, style: StylesData.descStyle),
-                      ],
-                    ),
+                SizedBox(
+                  width: 200,
+                  child: Text(
+                    part1,
+                    style: StylesData.descStyle,
+                    maxLines: 3,
+                    softWrap: true,
                   ),
                 ),
                 const SizedBox(height: 20),

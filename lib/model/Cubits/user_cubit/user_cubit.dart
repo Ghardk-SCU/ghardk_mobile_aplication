@@ -22,6 +22,9 @@ class UserCubit extends Cubit<UserState> {
     if (responseBody[ApiKey.status] == 'success') {
       await CacheNetwork.insertToCache(
           key: 'token', value: responseBody['data'][ApiKey.token]);
+      /*   await CacheNetwork.insertToCache(
+          key: 'id', value: responseBody['data'][ApiKey.id] ?? ""); */
+
       emit(Loginsuccess());
     } else {
       emit(Loginfaliure(errMsg: responseBody[ApiKey.message]));
@@ -60,6 +63,7 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
+  userModel? userr;
   Future getUserProfile() async {
     emit(userInfoLoading());
     String? token = await CacheNetwork.getCacheData(key: 'token');
@@ -69,8 +73,9 @@ class UserCubit extends Cubit<UserState> {
     });
     var responseBody = jsonDecode(response.body);
     if (responseBody[ApiKey.status] == 'success') {
-      userModel user = userModel.fromJson(responseBody);
-      emit(userInfosuccess(user: user));
+      userr = userModel.fromJson(responseBody);
+      emit(userInfosuccess(user: userr!));
+      // print("User : ${userr!.role}");
     } else {
       emit(userInfofaliure(errMsg: responseBody[ApiKey.message]));
     }

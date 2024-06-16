@@ -12,9 +12,11 @@ class offerContainerInfo extends StatelessWidget {
     required this.rateRating,
     required this.ratePeople,
     required this.ontap,
+    required this.quantity,
   });
   final String maintitle, desctitle;
   final double price, rateRating, ratePeople;
+  final int quantity;
   final VoidCallback ontap;
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,6 @@ class offerContainerInfo extends StatelessWidget {
             padding: EdgeInsets.only(right: 50),
             child: Text(
               maintitle,
-              //'Chicken Mushrooms Burger',
               maxLines: 1,
               style: StylesData.titleItemStyle,
             ),
@@ -46,9 +47,20 @@ class offerContainerInfo extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Price: ${price.toInt()} EGP',
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                  Row(
+                    children: [
+                      Text(
+                        'Price: ${price.toInt()} EGP',
+                        style: TextStyle(
+                            fontSize: 12, fontWeight: FontWeight.w500),
+                      ),
+                      SizedBox(width: 20),
+                      Text(
+                        'Quantity: ${quantity}',
+                        style: TextStyle(
+                            fontSize: 12, fontWeight: FontWeight.w500),
+                      ),
+                    ],
                   ),
                   Row(
                     children: [

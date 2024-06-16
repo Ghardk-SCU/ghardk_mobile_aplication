@@ -41,4 +41,20 @@ class userModel {
       active: json['data']['user']['active'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'firstName': firstName,
+      'lastName': lastName,
+      'email': email,
+      'role': role,
+      'createdAt': createdAt,
+      'updatedAt': updatedAt,
+      'dob': dob,
+      'gender': gender,
+      'img': img,
+      'active': active,
+    };
+  }
 }

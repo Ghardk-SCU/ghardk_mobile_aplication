@@ -2,11 +2,12 @@ class EndPoint {
   static String baseUrl = "https://ghrdk-14vh.onrender.com/api/v1/";
   static String login = "users/login";
   static String signUp = "users/signup";
-  static String getUser = "users/1";
+  static String getUser = "users/getMe";
   static String getDefaultAddress = "defaultAddress";
   static String getAllAddress = "addresses/";
   static String addAddress = "addresses/";
   static String getAllCountries = "countries/";
+  static String AddProduct = "products/myProducts";
 }
 
 class ApiKey {

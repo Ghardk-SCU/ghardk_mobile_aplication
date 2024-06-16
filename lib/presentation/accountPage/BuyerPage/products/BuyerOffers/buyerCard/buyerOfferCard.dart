@@ -1,13 +1,22 @@
 import 'package:final_project/core/utilits/constant.dart';
-import 'package:final_project/presentation/accountPage/BuyerPage/BuyerOffers/buyerCard/image.dart';
-import 'package:final_project/presentation/accountPage/BuyerPage/BuyerOffers/buyerCard/offerContainerInfo.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/products/BuyerOffers/buyerCard/image.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/products/BuyerOffers/buyerCard/offerContainerInfo.dart';
 import 'package:flutter/material.dart';
 
 class buyerOfferCard extends StatelessWidget {
   const buyerOfferCard({
     super.key,
+    required this.title,
+    required this.desc,
+    required this.img,
+    required this.price,
+    required this.quantity,
+    required this.EditProductFun,
   });
-
+  final String title, desc, img;
+  final double price;
+  final int quantity;
+  final VoidCallback EditProductFun;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,18 +32,17 @@ class buyerOfferCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(children: [
-              const imageForOffer(
-                  img: 'assets/images/burger-removebg-preview.png'),
+              imageForOffer(img: img),
               const SizedBox(width: 5),
               Expanded(
                   child: offerContainerInfo(
-                maintitle: 'Chicken Mushrooms Burger',
-                desctitle:
-                    'Chicken strips with mushrooms sauce and melted cheddar cheese.',
-                price: 50,
+                maintitle: title,
+                desctitle: desc,
+                price: price,
                 ratePeople: 1025,
                 rateRating: 3.5,
-                ontap: () {},
+                ontap: EditProductFun,
+                quantity: quantity,
               )),
             ]),
           )),

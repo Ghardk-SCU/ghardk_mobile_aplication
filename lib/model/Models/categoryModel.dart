@@ -1,9 +1,9 @@
 class CategoryModel {
-  int id;
-  String name;
+  final int id;
+  final String name;
   int? parentCategoryId; // Nullable parent category ID
-  String createdAt;
-  String updatedAt;
+  final String createdAt;
+  final String updatedAt;
 
   CategoryModel({
     required this.id,
@@ -13,7 +13,7 @@ class CategoryModel {
     required this.updatedAt,
   });
 
-  factory CategoryModel.fromJson(Map<String,dynamic> json) {
+  factory CategoryModel.fromJson(Map<String, dynamic> json) {
     return CategoryModel(
       id: json['id'],
       name: _capitalizeFirstLetter(json['name']),
@@ -27,5 +27,4 @@ class CategoryModel {
     if (input.isEmpty) return input;
     return input[0].toUpperCase() + input.substring(1);
   }
-
 }

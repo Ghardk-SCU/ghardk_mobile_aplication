@@ -34,7 +34,7 @@ class accountPage extends StatelessWidget {
                             img: 'assets/images/nasr.png',
                             location: 'Cairo, Helwan',
                           ),
-                          accountPageBody(),
+                          Expanded(child: accountPageBody()),
                         ],
                       )
                     : Container();

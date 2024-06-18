@@ -1,6 +1,9 @@
 import 'package:final_project/core/utilits/constant.dart';
 import 'package:final_project/presentation/cartPage/cart/cartContainer.dart';
+import 'package:final_project/presentation/cartPage/cart/cartTextPrice.dart';
+import 'package:final_project/presentation/cartPage/cart/checkOutButton.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class cartFull extends StatelessWidget {
   const cartFull({super.key});
@@ -35,21 +38,29 @@ class cartFull extends StatelessWidget {
             padding: EdgeInsets.all(16),
             width: double.maxFinite,
             color: kMainColor,
-            child: const Column(
+            child: Column(
               children: [
-                cartPriceText(
+                const cartPriceText(
                     desc: 'Shipping', price: 'EGP 20.00', isTotal: false),
-                SizedBox(height: 5),
-                cartPriceText(desc: 'Tax', price: 'EGP 5.02', isTotal: false),
-                SizedBox(height: 5),
-                SizedBox(
+                const SizedBox(height: 5),
+                const cartPriceText(
+                    desc: 'Tax', price: 'EGP 5.02', isTotal: false),
+                const SizedBox(height: 5),
+                const SizedBox(
                     width: double.infinity,
                     child: Divider(
                       thickness: 2,
                       color: Colors.white,
                     )),
-                SizedBox(height: 5),
-                cartPriceText(desc: 'Total', price: 'EGP 87.36', isTotal: true)
+                const SizedBox(height: 5),
+                const cartPriceText(
+                    desc: 'Total', price: 'EGP 87.36', isTotal: true),
+                const SizedBox(height: 20),
+                checkOutButton(
+                  ontap: () {
+                    _launchURL('https://www.instgram.com');
+                  },
+                ),
               ],
             ),
           ),
@@ -59,35 +70,14 @@ class cartFull extends StatelessWidget {
   }
 }
 
-class cartPriceText extends StatelessWidget {
-  const cartPriceText({
-    super.key,
-    required this.desc,
-    required this.price,
-    required this.isTotal,
-  });
-  final String desc, price;
-  final bool isTotal;
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(desc,
-            style: isTotal
-                ? TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white)
-                : TextStyle(fontSize: 18, color: Colors.white)),
-        Text(price,
-            style: isTotal
-                ? TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white)
-                : TextStyle(fontSize: 18, color: Colors.white)),
-      ],
-    );
+Future<void> _launchURL(String url) async {
+  if (!await launchUrl(
+    Uri.parse(url),
+    mode: LaunchMode.inAppBrowserView,
+    webViewConfiguration: WebViewConfiguration(
+      enableJavaScript: true,
+    ),
+  )) {
+    throw 'Could not launch $url';
   }
 }

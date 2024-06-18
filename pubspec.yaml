@@ -50,6 +50,8 @@ dependencies:
   rename: ^3.0.2
   shared_preferences: ^2.2.3
   timeline_tile: ^2.0.0
+  url_launcher: ^6.3.0
+  webview_flutter: ^4.8.0
 
 flutter_icons:
   android: true

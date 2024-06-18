@@ -18,6 +18,7 @@ class ProductsPage extends StatelessWidget {
     bool isVendor = BlocProvider.of<UserCubit>(context).userr!.role == 'vendor'
         ? true
         : false;
+
     return Column(
       children: [
         Visibility(

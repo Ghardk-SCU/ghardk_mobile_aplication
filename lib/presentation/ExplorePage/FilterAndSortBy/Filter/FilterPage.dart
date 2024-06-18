@@ -42,7 +42,8 @@ class _filterPageState extends State<filterPage> {
           SizedBox(
             height: 300,
             child: ListView.builder(
-              itemCount: 6,
+              itemCount:
+                  BlocProvider.of<CategoryCubit>(context).categories.length,
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(

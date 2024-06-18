@@ -11,20 +11,23 @@ class loginAndSignupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kMainColor,
-      body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        scrollDirection: Axis.vertical,
-        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          const mainLogo(),
-          Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            const SizedBox(height: 30),
-            Image.asset('assets/images/WelcomeImg.png'),
-            const loginAndSignupButtons(),
-            const SizedBox(height: 20),
-            const skipItNowButton(),
-            const SizedBox(height: 20),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            const mainLogo(),
+            Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+              const SizedBox(height: 30),
+              Image.asset('assets/images/WelcomeImg.png'),
+              const loginAndSignupButtons(),
+              const SizedBox(height: 20),
+              const skipItNowButton(),
+              const SizedBox(height: 20),
+            ]),
           ]),
-        ]),
+        ),
       ),
     );
   }

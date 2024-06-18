@@ -8,30 +8,32 @@ class signupPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: kMainColor,
-      body: SingleChildScrollView(
-        padding: EdgeInsets.only(top: 40, left: 16, right: 16, bottom: 20),
-        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        physics: BouncingScrollPhysics(),
-        scrollDirection: Axis.vertical,
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  back(),
-                  Spacer(),
-                  Image.asset('assets/images/Logo/completeLogo.png',
-                      fit: BoxFit.contain),
-                  Spacer(flex: 3),
-                ],
-              ),
-              // SizedBox(height: 30),
-              signupContainer(),
-            ]),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: kMainColor,
+        body: SingleChildScrollView(
+          padding: EdgeInsets.only(top: 40, left: 16, right: 16, bottom: 20),
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+          physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    back(),
+                    Spacer(),
+                    Image.asset('assets/images/Logo/completeLogo.png',
+                        fit: BoxFit.contain),
+                    Spacer(flex: 3),
+                  ],
+                ),
+                // SizedBox(height: 30),
+                signupContainer(),
+              ]),
+        ),
       ),
     );
   }

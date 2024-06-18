@@ -7,6 +7,7 @@ import 'package:final_project/presentation/accountPage/helpPage/helpPage.dart';
 import 'package:final_project/presentation/accountPage/orderPage/emptyOrderPage/emptyOrderPage.dart';
 import 'package:final_project/presentation/accountPage/orderPage/fullOrderPage/fullOrderPage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class accountPageBody extends StatelessWidget {
@@ -29,8 +30,7 @@ class accountPageBody extends StatelessWidget {
                   thickness: 1,
                 )),
             const SizedBox(height: 10),
-            SizedBox(
-              height: MediaQuery.sizeOf(context).height - 444,
+            Expanded(
               child: ListView(
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
@@ -46,19 +46,13 @@ class accountPageBody extends StatelessWidget {
                       title: "Favorites",
                       icon: Icons.favorite,
                       ontap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const favoritePage()));
+                        Get.to(() => const favoritePage());
                       }),
                   customListTile(
                       title: "Orders",
                       icon: Icons.assignment,
                       ontap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const fullOrderPage()));
+                        Get.to(() => const fullOrderPage());
                       }),
                   customListTile(
                       title: "Notification",
@@ -68,10 +62,7 @@ class accountPageBody extends StatelessWidget {
                       title: "Help",
                       icon: Icons.help_outline,
                       ontap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const helpPage()));
+                        Get.to(() => const helpPage());
                       }),
                   customListTile(
                       title: "Settings", icon: Icons.settings, ontap: () {}),

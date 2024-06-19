@@ -17,7 +17,7 @@ class dashboardPage extends StatelessWidget {
                 colorIcon: Color(0xffD398E7),
                 icon: Icons.signal_cellular_alt_rounded,
                 title: 'Total revenue',
-                number: 65.232641,
+                number: 65.23,
                 footer: '12% increase from last month',
               ),
             ),

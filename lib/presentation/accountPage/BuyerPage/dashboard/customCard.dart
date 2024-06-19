@@ -46,7 +46,7 @@ class customDashboardCard extends StatelessWidget {
               SizedBox(height: 10),
               Text(
                   isPrice
-                      ? '\$${number.toStringAsFixed(4)}'
+                      ? '\$${number.toStringAsFixed(2)}'
                       : '${number.toInt()}',
                   style: TextStyle(
                       fontSize: 28,

@@ -17,10 +17,7 @@ Future<void> main() async {
   userToken = await CacheNetwork.getCacheData(key: 'token');
   runApp(MultiBlocProvider(
     providers: [
-      BlocProvider(create: (context) => AddressCubit()
-/*           ..getAllAddress()
-          ..getAllCountries(), */
-          ),
+      BlocProvider(create: (context) => AddressCubit()),
       BlocProvider(
         create: (context) => UserCubit()..getUserProfile(),
       ),
@@ -46,6 +43,7 @@ class MyApp extends StatelessWidget {
             textTheme:
                 GoogleFonts.nunitoSansTextTheme(Theme.of(context).textTheme)),
         debugShowCheckedModeBanner: false,
-        home: userToken != null ? const mainPage() : loginAndSignupScreen());
+        home: /* userToken != null ? const mainPage() :  */
+            loginAndSignupScreen());
   }
 }

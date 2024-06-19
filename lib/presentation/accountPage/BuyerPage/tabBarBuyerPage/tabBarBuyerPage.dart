@@ -27,14 +27,12 @@ class tabBarBuyerPage extends StatelessWidget {
           SizedBox(height: 10),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-            child: Expanded(
-              child: AutoScaleTabBarView(
-                children: [
-                  dashboardPage(),
-                  ProductsPage(),
-                  Container(),
-                ],
-              ),
+            child: AutoScaleTabBarView(
+              children: [
+                dashboardPage(),
+                ProductsPage(),
+                Container(),
+              ],
             ),
           )
         ],

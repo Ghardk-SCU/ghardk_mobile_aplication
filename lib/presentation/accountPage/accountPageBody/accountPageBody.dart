@@ -1,5 +1,6 @@
 import 'package:final_project/core/utilits/forYouText.dart';
 import 'package:final_project/presentation/accountPage/BuyerPage/buyerPage.dart';
+import 'package:final_project/presentation/accountPage/accountPageBody/SettingPage/settingPage.dart';
 import 'package:final_project/presentation/accountPage/accountPageBody/customListTile.dart';
 import 'package:final_project/presentation/accountPage/cart/cart.dart';
 import 'package:final_project/presentation/accountPage/favoritePage/favorite/favoritePage.dart';
@@ -65,7 +66,9 @@ class accountPageBody extends StatelessWidget {
                         Get.to(() => const helpPage());
                       }),
                   customListTile(
-                      title: "Settings", icon: Icons.settings, ontap: () {}),
+                      title: "Settings",
+                      icon: Icons.settings,
+                      ontap: () => Get.to(() => const settingPage())),
                 ],
               ),
             )

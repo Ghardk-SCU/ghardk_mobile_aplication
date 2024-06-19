@@ -1,6 +1,6 @@
 import 'package:final_project/core/utilits/constant.dart';
 import 'package:final_project/core/utilits/forYouText.dart';
-import 'package:final_project/presentation/topRatedPage/Top_sellers/topSellerItem.dart';
+
 import 'package:final_project/presentation/topRatedPage/Top_sellers/topSellerListView.dart';
 import 'package:final_project/presentation/topRatedPage/category_list_view/categoryTopRatedListView.dart';
 import 'package:flutter/material.dart';

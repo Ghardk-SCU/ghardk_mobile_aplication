@@ -1,4 +1,3 @@
-import 'package:final_project/core/utilits/constant.dart';
 import 'package:final_project/presentation/topRatedPage/Top_sellers/descraptionContainer.dart';
 import 'package:final_project/presentation/topRatedPage/Top_sellers/itemInfo.dart';
 import 'package:final_project/presentation/topRatedPage/Top_sellers/medal.dart';

@@ -5,6 +5,7 @@ import 'package:final_project/model/Cubits/Product_cubit/product_cubit.dart';
 import 'package:final_project/model/Cubits/category_cubit/category_cubit.dart';
 import 'package:final_project/model/Cubits/user_cubit/user_cubit.dart';
 import 'package:final_project/presentation/Login&signup/loginAndSignupScreen/loginAndSignupScreen.dart';
+import 'package:final_project/presentation/mainPage/mainPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -40,13 +41,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: ThemeData.light().copyWith(
-          scaffoldBackgroundColor: kScaffoldColor,
-          textTheme:
-              GoogleFonts.nunitoSansTextTheme(Theme.of(context).textTheme)),
-      debugShowCheckedModeBanner: false,
-      home: loginAndSignupScreen(),
-    );
-    //userToken != null ? const mainPage() : loginAndSignupScreen());
+        theme: ThemeData.light().copyWith(
+            scaffoldBackgroundColor: kScaffoldColor,
+            textTheme:
+                GoogleFonts.nunitoSansTextTheme(Theme.of(context).textTheme)),
+        debugShowCheckedModeBanner: false,
+        home: userToken != null ? const mainPage() : loginAndSignupScreen());
   }
 }

@@ -30,8 +30,10 @@ class _loginPageState extends State<loginPage> {
                   children: [
                     back(),
                     Spacer(),
-                    Image.asset('assets/images/Logo/completeLogo.png',
-                        fit: BoxFit.contain),
+                    Center(
+                      child: Image.asset('assets/images/Logo/completeLogo.png',
+                          fit: BoxFit.contain),
+                    ),
                     Spacer(flex: 3),
                   ],
                 ),

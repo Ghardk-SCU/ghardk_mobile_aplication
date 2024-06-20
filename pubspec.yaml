@@ -45,6 +45,7 @@ dependencies:
   google_fonts: ^6.1.0
   icony: ^1.0.5
   image_picker: ^1.0.7
+  intl: ^0.19.0
   motion_tab_bar: ^2.0.4
   page_transition: ^2.1.0
   rename: ^3.0.2

@@ -34,9 +34,11 @@ class UserCubit extends Cubit<UserState> {
   Future signUp(
       {required String fristName,
       required String lastName,
+      required String userName,
       required String email,
       required String role,
       required String gender,
+      required String date,
       required String nationalId,
       required String password,
       required String passwordConfirm}) async {
@@ -47,6 +49,8 @@ class UserCubit extends Cubit<UserState> {
             body: jsonEncode({
               ApiKey.firstName: fristName,
               ApiKey.lastName: lastName,
+              ApiKey.userName: userName,
+              ApiKey.date: date,
               ApiKey.email: email,
               ApiKey.password: password,
               ApiKey.passwordConfirm: passwordConfirm,

@@ -3,6 +3,7 @@ import 'package:final_project/model/Cubits/user_cubit/user_cubit.dart';
 import 'package:final_project/presentation/Login&signup/login/loginPage.dart';
 import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/customDropDownMenu.dart';
 import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/custonFormField.dart';
+import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/datePickerfromField.dart';
 import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/loginButton.dart';
 import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/signupButton.dart';
 import 'package:flutter/cupertino.dart';
@@ -29,6 +30,8 @@ class _signupFormState extends State<signupForm> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
+  final usernameController = TextEditingController();
+  final dateInputController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     bool isvisable = role == 'vendor' ? true : false;
@@ -108,6 +111,8 @@ class _signupFormState extends State<signupForm> {
                 visible: isvisable,
               ),
               if (isvisable) SizedBox(height: 15),
+              customFormField(text: 'Username', controller: usernameController),
+              SizedBox(height: 15),
               emailForm(controller: emailController),
               const SizedBox(height: 15),
               passwordForm(label: 'Password', controller: passwordController),
@@ -115,6 +120,8 @@ class _signupFormState extends State<signupForm> {
               passwordForm(
                   label: 'Confirm Password',
                   controller: confirmPasswordController),
+              SizedBox(height: 15),
+              DatePickerFormField(dateInputController: dateInputController),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -169,9 +176,11 @@ class _signupFormState extends State<signupForm> {
                       BlocProvider.of<UserCubit>(context).signUp(
                           fristName: fristNameController.text,
                           lastName: lastNameController.text,
+                          userName: usernameController.text,
                           email: emailController.text,
                           role: role!,
                           gender: _gender!,
+                          date: dateInputController.text,
                           nationalId: nationalIdController.text,
                           password: passwordController.text,
                           passwordConfirm: confirmPasswordController.text);

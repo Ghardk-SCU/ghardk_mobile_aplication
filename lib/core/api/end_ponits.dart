@@ -14,6 +14,7 @@ class ApiKey {
   static String status = "status";
   static String firstName = "first_name";
   static String lastName = "last_name";
+  static String userName = "user_name";
   static String errorMessage = "ErrorMessage";
   static String email = "email";
   static String password = "password";
@@ -23,6 +24,7 @@ class ApiKey {
   static String gender = "gender";
   static String message = "message";
   static String id = "id";
+  static String date = "dob";
   static String name = "name";
   static String phone = "phone";
   static String passwordConfirm = "password_confirm";

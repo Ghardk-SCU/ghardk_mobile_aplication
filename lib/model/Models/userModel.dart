@@ -4,6 +4,7 @@ class userModel {
   int id;
   String firstName;
   String lastName;
+  String username;
   String email;
   String role;
   String? createdAt;
@@ -17,6 +18,7 @@ class userModel {
       {required this.id,
       required this.firstName,
       required this.lastName,
+      required this.username,
       required this.email,
       required this.role,
       required this.dob,
@@ -29,6 +31,7 @@ class userModel {
   factory userModel.fromJson(json) {
     return userModel(
       id: json['data']['user']['${ApiKey.id}'],
+      username: json['data']['user']['${ApiKey.userName}'],
       firstName: json['data']['user']['${ApiKey.firstName}'],
       lastName: json['data']['user']['${ApiKey.lastName}'],
       email: json['data']['user']['${ApiKey.email}'],
@@ -47,6 +50,7 @@ class userModel {
       'id': id,
       'firstName': firstName,
       'lastName': lastName,
+      'user_name': username,
       'email': email,
       'role': role,
       'createdAt': createdAt,

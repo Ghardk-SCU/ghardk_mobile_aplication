@@ -5,7 +5,6 @@ import 'package:final_project/model/Cubits/Product_cubit/product_cubit.dart';
 import 'package:final_project/model/Cubits/category_cubit/category_cubit.dart';
 import 'package:final_project/model/Cubits/user_cubit/user_cubit.dart';
 import 'package:final_project/presentation/Login&signup/loginAndSignupScreen/loginAndSignupScreen.dart';
-import 'package:final_project/presentation/mainPage/mainPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';

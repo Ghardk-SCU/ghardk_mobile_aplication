@@ -8,6 +8,10 @@ class EndPoint {
   static String addAddress = "addresses/";
   static String getAllCountries = "countries/";
   static String AddProduct = "products/myProducts";
+  static String forgetPasswordEmail = "users/forget-password";
+  static String forgetPassworSecretToken = "users/reset-token";
+  static String resetPassword = "users/reset-password";
+  static String verifyAcc = "users/verify";
 }
 
 class ApiKey {

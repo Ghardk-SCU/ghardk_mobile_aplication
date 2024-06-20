@@ -1,11 +1,14 @@
 import 'package:final_project/core/utilits/constant.dart';
 import 'package:final_project/model/Cubits/user_cubit/user_cubit.dart';
+import 'package:final_project/presentation/Login&signup/login/forgotPassword/components/actionButton.dart';
+import 'package:final_project/presentation/Login&signup/login/forgotPassword/emailConfirmation/otp.dart';
 import 'package:final_project/presentation/Login&signup/login/loginPage.dart';
 import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/customDropDownMenu.dart';
 import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/custonFormField.dart';
 import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/datePickerfromField.dart';
 import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/loginButton.dart';
 import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/signupButton.dart';
+import 'package:final_project/presentation/Login&signup/signup/signupContainer/components/varficationDialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -35,15 +38,58 @@ class _signupFormState extends State<signupForm> {
   @override
   Widget build(BuildContext context) {
     bool isvisable = role == 'vendor' ? true : false;
+    late String OtpCode;
     return BlocConsumer<UserCubit, UserState>(
       listener: (context, state) {
         if (state is sigunUpsuccess) {
           var snackBar = SnackBar(
               content: Text(
-                  'You have been registered successfully , Please Login to start '));
+                  'You have been registered successfully , Check Your Inbox Email to Try Verify Account '));
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
           Duration(milliseconds: 500);
-          Get.to(() => loginPage());
+          showDialog(
+            context: context,
+            builder: (context) {
+              return BlocConsumer<UserCubit, UserState>(
+                listener: (context, state) {
+                  if (state is VerifyAccountsuccess) {
+                    var snackBar = SnackBar(
+                        content: Text(
+                            'You have been registered successfully , Please Login your Account'));
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    Duration(milliseconds: 500);
+                    Get.to(() => loginPage());
+                  } else if (state is VerifyAccountfaliure) {
+                    var snackBar = SnackBar(content: Text('${state.errMsg}'));
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  }
+                },
+                builder: (context, state) {
+                  return CustomDialog(
+                    child: state is VerifyAccountLoading
+                        ? Center(child: CircularProgressIndicator())
+                        : Text(
+                            'Verify',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
+                          ),
+                    ontap: () {
+                      BlocProvider.of<UserCubit>(context).VerifyAccount(
+                          email: emailController.text, SecretToken: OtpCode);
+                    },
+                    onSubmitCode: (p0) {
+                      print(emailController.text);
+                      OtpCode = p0;
+                      print(OtpCode);
+                    },
+                  );
+                },
+              );
+            },
+          );
         } else if (state is sigunUpfaliure) {
           var snackBar = SnackBar(content: Text('${state.errMsg}'));
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
@@ -188,6 +234,12 @@ class _signupFormState extends State<signupForm> {
                   } else {
                     return null;
                   }
+                  /*  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return CustomDialog();
+                    },
+                  ); */
                 },
               ),
               SizedBox(height: 20),

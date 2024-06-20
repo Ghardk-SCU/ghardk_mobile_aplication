@@ -1,7 +1,6 @@
 import 'package:final_project/core/utilits/constant.dart';
 import 'package:final_project/presentation/Login&signup/login/forgotPassword/resetDone/resetDone.dart';
-import 'package:final_project/presentation/Login&signup/login/forgotPassword/resetpassword/resetPassword.dart';
-import 'package:final_project/presentation/Login&signup/login/forgotPassword/typingEmail/typingEmail.dart';
+
 import 'package:flutter/material.dart';
 
 class forgotPassword extends StatelessWidget {

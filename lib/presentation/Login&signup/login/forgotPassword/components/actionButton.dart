@@ -34,3 +34,31 @@ class actionButton extends StatelessWidget {
     );
   }
 }
+
+class actionButton2 extends StatelessWidget {
+  const actionButton2({
+    super.key,
+    required this.ontap,
+    required this.child,
+  });
+  final VoidCallback ontap;
+  final Widget child;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 24),
+      child: InkWell(
+        onTap: ontap,
+        child: Container(
+            //margin: EdgeInsets.symmetric(horizontal: 24),
+            padding: EdgeInsets.symmetric(vertical: 12),
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: kMainColor,
+            ),
+            child: child),
+      ),
+    );
+  }
+}

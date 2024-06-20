@@ -67,6 +67,21 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
+  Future VerifyAccount(
+      {required String email, required String SecretToken}) async {
+    emit(VerifyAccountLoading());
+    final response = await http.post(
+        Uri.parse('${EndPoint.baseUrl}${EndPoint.verifyAcc}'),
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({ApiKey.email: email, 'secretToken': SecretToken}));
+    var responseBody = jsonDecode(response.body);
+    if (responseBody[ApiKey.status] == 'success') {
+      emit(VerifyAccountsuccess());
+    } else {
+      emit(VerifyAccountfaliure(errMsg: responseBody[ApiKey.message]));
+    }
+  }
+
   userModel? userr;
   Future getUserProfile() async {
     emit(userInfoLoading());
@@ -82,6 +97,50 @@ class UserCubit extends Cubit<UserState> {
       // print("User : ${userr!.role}");
     } else {
       emit(userInfofaliure(errMsg: responseBody[ApiKey.message]));
+    }
+  }
+
+  Future getEmailForResetPassword({required String email}) async {
+    emit(getEmailForResetPasswordLoading());
+    final response = await http.post(
+        Uri.parse('${EndPoint.baseUrl}${EndPoint.forgetPasswordEmail}'),
+        headers: {"Content-Type": "application/json"},
+        body: {ApiKey.email: email});
+    var responseBody = jsonDecode(response.body);
+    if (responseBody[ApiKey.status] == 'success') {
+      emit(getEmailForResetPasswordsuccess());
+    } else {
+      emit(getEmailForResetPasswordfaliure(
+          errMsg: responseBody[ApiKey.message]));
+    }
+  }
+
+  Future getSecretTokenForResetPassword({required String token}) async {
+    emit(getSecretTokenForResetPasswordLoading());
+    final response = await http.post(
+        Uri.parse('${EndPoint.baseUrl}${EndPoint.forgetPasswordEmail}'),
+        headers: {"Content-Type": "application/json"},
+        body: {ApiKey.token: token});
+    var responseBody = jsonDecode(response.body);
+    if (responseBody[ApiKey.status] == 'success') {
+      emit(getSecretTokenForResetPasswordsuccess());
+    } else {
+      emit(getSecretTokenForResetPasswordfaliure(
+          errMsg: responseBody[ApiKey.message]));
+    }
+  }
+
+  Future ResetPassword({required String token}) async {
+    emit(ResetPasswordLoading());
+    final response = await http.post(
+        Uri.parse('${EndPoint.baseUrl}${EndPoint.resetPassword}'),
+        headers: {"Content-Type": "application/json"},
+        body: {ApiKey.token: token});
+    var responseBody = jsonDecode(response.body);
+    if (responseBody[ApiKey.status] == 'success') {
+      emit(ResetPasswordsuccess());
+    } else {
+      emit(ResetPasswordfaliure(errMsg: responseBody[ApiKey.message]));
     }
   }
 }

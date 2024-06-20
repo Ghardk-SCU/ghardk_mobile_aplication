@@ -6,7 +6,9 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 class OTP extends StatelessWidget {
   const OTP({
     super.key,
+    required this.onSubmit,
   });
+  final Function(String)? onSubmit;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,17 +18,17 @@ class OTP extends StatelessWidget {
           fontSize: 20,
           fontWeight: FontWeight.w600,
         ),
-        keyboardType: TextInputType.number,
+        keyboardType: TextInputType.name,
         numberOfFields: 6,
         contentPadding: EdgeInsets.only(left: 7, right: 5),
         borderWidth: 1,
         borderRadius: BorderRadius.circular(8),
         showFieldAsBox: true,
-        fieldWidth: 40,
-        fieldHeight: 40,
+        fieldWidth: 35,
+        fieldHeight: 35,
         cursorColor: kMainColor,
         borderColor: kMainColor,
-        onSubmit: (value) {},
+        onSubmit: onSubmit,
       ),
     );
   }

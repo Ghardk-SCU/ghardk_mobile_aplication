@@ -1,6 +1,7 @@
 import 'package:final_project/core/utilits/constant.dart';
-import 'package:final_project/presentation/Login&signup/login/forgotPassword/typingEmail/typingEmail.dart';
+import 'package:final_project/presentation/Login&signup/login/Forget_Password/sendingEmailScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class forgotPasswordButton extends StatelessWidget {
   const forgotPasswordButton({
@@ -14,15 +15,7 @@ class forgotPasswordButton extends StatelessWidget {
       children: [
         TextButton(
             onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(64),
-                          topRight: Radius.circular(64))),
-                  duration: Duration(hours: 1),
-                  backgroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-                  content: typingEmail()));
+              Get.to(() => sendingEmailScreen());
             },
             child: Text(
               'Forgot Password',

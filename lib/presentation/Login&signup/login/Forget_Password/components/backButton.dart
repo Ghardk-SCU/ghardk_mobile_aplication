@@ -12,7 +12,11 @@ class backButton extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        IconButton(onPressed: () {}, icon: Icon(FontAwesomeIcons.arrowLeft))
+        IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: Icon(FontAwesomeIcons.arrowLeft))
       ],
     );
   }

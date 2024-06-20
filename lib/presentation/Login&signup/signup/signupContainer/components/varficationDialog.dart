@@ -1,6 +1,6 @@
 import 'package:final_project/core/utilits/constant.dart';
-import 'package:final_project/presentation/Login&signup/login/forgotPassword/components/actionButton.dart';
-import 'package:final_project/presentation/Login&signup/login/forgotPassword/emailConfirmation/otp.dart';
+import 'package:final_project/presentation/Login&signup/login/Forget_Password/components/actionButton.dart';
+import 'package:final_project/presentation/Login&signup/login/Forget_Password/components/otp.dart';
 import 'package:flutter/material.dart';
 
 class CustomDialog extends StatelessWidget {

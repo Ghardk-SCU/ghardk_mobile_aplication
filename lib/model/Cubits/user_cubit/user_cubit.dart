@@ -105,9 +105,10 @@ class UserCubit extends Cubit<UserState> {
     final response = await http.post(
         Uri.parse('${EndPoint.baseUrl}${EndPoint.forgetPasswordEmail}'),
         headers: {"Content-Type": "application/json"},
-        body: {ApiKey.email: email});
+        body: jsonEncode({ApiKey.email: email}));
     var responseBody = jsonDecode(response.body);
     if (responseBody[ApiKey.status] == 'success') {
+      await CacheNetwork.insertToCache(key: 'resetEmail', value: email);
       emit(getEmailForResetPasswordsuccess());
     } else {
       emit(getEmailForResetPasswordfaliure(
@@ -120,9 +121,13 @@ class UserCubit extends Cubit<UserState> {
     final response = await http.post(
         Uri.parse('${EndPoint.baseUrl}${EndPoint.forgetPasswordEmail}'),
         headers: {"Content-Type": "application/json"},
-        body: {ApiKey.token: token});
+        body: jsonEncode({
+          'email': await CacheNetwork.getCacheData(key: 'resetEmail'),
+          'secretToken': token,
+        }));
     var responseBody = jsonDecode(response.body);
     if (responseBody[ApiKey.status] == 'success') {
+      await CacheNetwork.insertToCache(key: 'resetCode', value: token);
       emit(getSecretTokenForResetPasswordsuccess());
     } else {
       emit(getSecretTokenForResetPasswordfaliure(
@@ -130,14 +135,22 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
-  Future ResetPassword({required String token}) async {
+  Future ResetPassword(
+      {required String newpassword, required String confirmnewpassword}) async {
     emit(ResetPasswordLoading());
     final response = await http.post(
         Uri.parse('${EndPoint.baseUrl}${EndPoint.resetPassword}'),
         headers: {"Content-Type": "application/json"},
-        body: {ApiKey.token: token});
+        body: jsonEncode({
+          'secretToken': await CacheNetwork.getCacheData(key: 'resetCode'),
+          ApiKey.email: await CacheNetwork.getCacheData(key: 'resetEmail'),
+          'password': newpassword,
+          'password_confirm': confirmnewpassword
+        }));
     var responseBody = jsonDecode(response.body);
     if (responseBody[ApiKey.status] == 'success') {
+      await CacheNetwork.deleteCacheItem(key: 'resetCode');
+      await CacheNetwork.deleteCacheItem(key: 'resetEmail');
       emit(ResetPasswordsuccess());
     } else {
       emit(ResetPasswordfaliure(errMsg: responseBody[ApiKey.message]));

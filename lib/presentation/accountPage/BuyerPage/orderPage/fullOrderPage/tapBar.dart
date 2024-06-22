@@ -1,5 +1,5 @@
-import 'package:final_project/presentation/accountPage/orderPage/fullOrderPage/buttonsInTabBarorderPage.dart';
-import 'package:final_project/presentation/accountPage/orderPage/fullOrderPage/orderItem.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/orderPage/fullOrderPage/buttonsInTabBarorderPage.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/orderPage/fullOrderPage/orderItem.dart';
 import 'package:flutter/material.dart';
 
 class tabBar extends StatelessWidget {
@@ -17,12 +17,6 @@ class tabBar extends StatelessWidget {
           child: TabBarView(
             physics: BouncingScrollPhysics(),
             children: [
-              ListView.builder(
-                itemCount: 6,
-                itemBuilder: (context, index) {
-                  return orderItem();
-                },
-              ),
               Container(),
               Container(),
               Container(),

@@ -1,6 +1,6 @@
-import 'package:final_project/presentation/accountPage/orderPage/orderInformation/detailsAndStatusContainer/customTimeLineTile.dart';
-import 'package:final_project/presentation/accountPage/orderPage/orderInformation/detailsAndStatusContainer/detailAndStatusHeader.dart';
-import 'package:final_project/presentation/accountPage/orderPage/orderInformation/detailsAndStatusContainer/detailItems.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/orderPage/orderInformation/detailsAndStatusContainer/customTimeLineTile.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/orderPage/orderInformation/detailsAndStatusContainer/detailAndStatusHeader.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/orderPage/orderInformation/detailsAndStatusContainer/detailItems.dart';
 import 'package:flutter/material.dart';
 
 class DetailsAndStatusContainer extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:final_project/core/utilits/constant.dart';
-import 'package:final_project/presentation/accountPage/orderPage/orderInformation/shippingAddressContainer/shippingAddressHeader.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/orderPage/orderInformation/shippingAddressContainer/shippingAddressHeader.dart';
 import 'package:flutter/material.dart';
 
 class ShippingAddressContainer extends StatelessWidget {

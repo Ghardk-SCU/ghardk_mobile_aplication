@@ -5,8 +5,13 @@ import 'package:final_project/presentation/homePage/homePageBody/CustomButton.da
 import 'package:flutter/material.dart';
 
 class favItem extends StatefulWidget {
-  const favItem({super.key});
-
+  const favItem(
+      {super.key,
+      required this.productName,
+      required this.sellerName,
+      required this.price});
+  final String productName, sellerName;
+  final double price;
   @override
   State<favItem> createState() => _favItemState();
 }
@@ -26,7 +31,10 @@ class _favItemState extends State<favItem> {
           child: Column(
             children: [
               upperItem(),
-              lowerItem(),
+              lowerItem(
+                  productName: widget.productName,
+                  sellerName: widget.sellerName,
+                  price: widget.price),
             ],
           ),
         ),
@@ -83,8 +91,13 @@ class _upperItemState extends State<upperItem> {
 }
 
 class lowerItem extends StatelessWidget {
-  const lowerItem({super.key});
-
+  const lowerItem(
+      {super.key,
+      required this.productName,
+      required this.sellerName,
+      required this.price});
+  final String productName, sellerName;
+  final double price;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -95,7 +108,7 @@ class lowerItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Mini Camera Figure',
+              productName,
               style: TextStyle(
                   fontSize: 14,
                   color: Colors.black,
@@ -119,7 +132,7 @@ class lowerItem extends StatelessWidget {
             InkWell(
               onTap: () {},
               child: Text(
-                'Mohammed Nasr',
+                sellerName,
                 style: StylesData.favSellerNameStyle,
               ),
             )
@@ -161,7 +174,7 @@ class lowerItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "14 EGP",
+              "${price} EGP",
               style: TextStyle(
                   fontSize: 14, color: kMainColor, fontWeight: FontWeight.w500),
             ),

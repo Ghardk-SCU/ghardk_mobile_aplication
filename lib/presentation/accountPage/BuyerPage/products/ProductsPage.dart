@@ -26,8 +26,8 @@ class ProductsPage extends StatelessWidget {
           child: AddProductButton(ontap: () => Get.to(AddNewProductScreen())),
         ),
         ListView.builder(
-          itemCount: 6,
-          physics: NeverScrollableScrollPhysics(),
+          itemCount: 10,
+          physics: BouncingScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return buyerOfferCard(

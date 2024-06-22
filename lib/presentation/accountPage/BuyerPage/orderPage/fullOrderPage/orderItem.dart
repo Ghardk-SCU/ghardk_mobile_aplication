@@ -1,6 +1,6 @@
-import 'package:final_project/presentation/accountPage/orderPage/fullOrderPage/detailsButton.dart';
-import 'package:final_project/presentation/accountPage/orderPage/fullOrderPage/orderStatus.dart';
-import 'package:final_project/presentation/accountPage/orderPage/orderInformation/orderInformation.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/orderPage/fullOrderPage/detailsButton.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/orderPage/fullOrderPage/orderStatus.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/orderPage/orderInformation/orderInformation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

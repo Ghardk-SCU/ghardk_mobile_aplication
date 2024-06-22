@@ -12,6 +12,10 @@ class EndPoint {
   static String forgetPassworSecretToken = "users/reset-token";
   static String resetPassword = "users/reset-password";
   static String verifyAcc = "users/verify";
+  static String AllFavorites = "favourites";
+  static String addFavorite = "favourites";
+  static String Cart = "carts";
+  static String AddToCart = "products/1/carts/item";
 }
 
 class ApiKey {

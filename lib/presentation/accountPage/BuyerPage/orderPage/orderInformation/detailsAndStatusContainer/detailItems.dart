@@ -1,5 +1,5 @@
 import 'package:final_project/core/utilits/constant.dart';
-import 'package:final_project/presentation/accountPage/orderPage/orderInformation/detailItem.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/orderPage/orderInformation/detailItem.dart';
 import 'package:flutter/material.dart';
 
 class detailItems extends StatelessWidget {

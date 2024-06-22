@@ -1,6 +1,6 @@
-import 'package:final_project/presentation/accountPage/orderPage/orderInformation/detailsAndStatusContainer/DetailsAndStatusContainer.dart';
-import 'package:final_project/presentation/accountPage/orderPage/orderInformation/priceContainer/priceContainer.dart';
-import 'package:final_project/presentation/accountPage/orderPage/orderInformation/shippingAddressContainer/ShippingAddressContainer.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/orderPage/orderInformation/detailsAndStatusContainer/DetailsAndStatusContainer.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/orderPage/orderInformation/priceContainer/priceContainer.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/orderPage/orderInformation/shippingAddressContainer/ShippingAddressContainer.dart';
 import 'package:flutter/material.dart';
 
 class orderInformation extends StatelessWidget {

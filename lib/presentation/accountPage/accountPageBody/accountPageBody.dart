@@ -5,7 +5,7 @@ import 'package:final_project/presentation/accountPage/accountPageBody/customLis
 import 'package:final_project/presentation/accountPage/cart/cart.dart';
 import 'package:final_project/presentation/accountPage/favoritePage/favorite/favoritePage.dart';
 import 'package:final_project/presentation/accountPage/helpPage/helpPage.dart';
-import 'package:final_project/presentation/accountPage/orderPage/fullOrderPage/fullOrderPage.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -47,12 +47,6 @@ class accountPageBody extends StatelessWidget {
                       icon: Icons.favorite,
                       ontap: () {
                         Get.to(() => const favoritePage());
-                      }),
-                  customListTile(
-                      title: "Orders",
-                      icon: Icons.assignment,
-                      ontap: () {
-                        Get.to(() => const fullOrderPage());
                       }),
                   customListTile(
                       title: "Notification",

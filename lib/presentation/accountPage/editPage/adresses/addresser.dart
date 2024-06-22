@@ -1,7 +1,7 @@
 import 'package:final_project/core/utilits/constant.dart';
 import 'package:final_project/model/Cubits/Address_cubit/address_cubit.dart';
 import 'package:final_project/presentation/accountPage/editPage/adresses/addNewAddressPage.dart';
-import 'package:final_project/presentation/accountPage/orderPage/orderInformation/shippingAddressContainer/ShippingAddressContainer.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/orderPage/orderInformation/shippingAddressContainer/ShippingAddressContainer.dart';
 import 'package:final_project/presentation/accountPage/widget/customAccAppBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

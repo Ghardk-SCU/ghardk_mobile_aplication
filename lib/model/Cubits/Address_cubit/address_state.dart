@@ -27,6 +27,17 @@ final class addAddressfaliure extends AddressState {
   addAddressfaliure({required this.errMsg});
 }
 
+final class deleteAddressInitial extends AddressState {}
+
+final class deleteAddressLoading extends AddressState {}
+
+final class deleteAddressSuccess extends AddressState {}
+
+final class deleteAddressfaliure extends AddressState {
+  final String errMsg;
+  deleteAddressfaliure({required this.errMsg});
+}
+
 final class getAllCountriesInitial extends AddressState {}
 
 final class getAllCountriesLoading extends AddressState {}

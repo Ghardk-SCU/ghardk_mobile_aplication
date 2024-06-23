@@ -33,4 +33,36 @@ class CartCubit extends Cubit<CartState> {
       emit(CartFaliure(errMsg: responseBody[ApiKey.message]));
     }
   }
+
+  Future<void> addToCart({required int quantity}) async {
+    String? token = await CacheNetwork.getCacheData(key: 'token');
+    emit(addToCartLoading());
+    final response = await http.post(
+        Uri.parse("${EndPoint.baseUrl}products/1/carts/item"),
+        headers: {'Authorization': 'Bearer $token', "lang": "en"},
+        body: jsonEncode({'quantity': quantity}));
+
+    var responseBody = jsonDecode(response.body);
+    if (responseBody[ApiKey.status] == 'success') {
+      emit(addToCartSuccess());
+    } else {
+      emit(addToCartFaliure(errMsg: responseBody[ApiKey.message]));
+    }
+  }
+
+  Future<void> deleteFromCart() async {
+    String? token = await CacheNetwork.getCacheData(key: 'token');
+    emit(deleteFromCartLoading());
+    final response = await http.delete(
+      Uri.parse("${EndPoint.baseUrl}carts/1 "),
+      headers: {'Authorization': 'Bearer $token', "lang": "en"},
+    );
+
+    var responseBody = jsonDecode(response.body);
+    if (responseBody[ApiKey.status] == 'success') {
+      emit(deleteFromCartSuccess());
+    } else {
+      emit(deleteFromCartFaliure(errMsg: responseBody[ApiKey.message]));
+    }
+  }
 }

@@ -43,6 +43,24 @@ class AddressCubit extends Cubit<AddressState> {
     }
   }
 
+  Future<void> deleteAddress({required int ID}) async {
+    emit(deleteAddressLoading());
+    String? token = await CacheNetwork.getCacheData(key: 'token');
+    final response = await http.delete(
+        Uri.parse('${EndPoint.baseUrl}${EndPoint.addAddress}/$ID'),
+        headers: {
+          'Authorization': 'Bearer $token',
+          'Content-Type': 'application/json',
+        });
+
+    if (response.statusCode == 200) {
+      print('Successfully deleted the data.');
+      emit(deleteAddressSuccess());
+    } else {
+      print('Failed to delete the data. Status code: ${response.statusCode}');
+    }
+  }
+
   List<AddressModel> allAddress = [];
   Future getAllAddress() async {
     allAddress.clear();
@@ -59,15 +77,7 @@ class AddressCubit extends Cubit<AddressState> {
         allAddress.add(AddressModel.fromJson(address));
       }
       print("Address length  = ${allAddress.length}");
-      final addressCards = allAddress
-          .map((address) => AddressCard(
-                city: address.city,
-                description: address.description,
-                postalCode: address.postalCode,
-                StreetName: address.streetName,
-              ))
-          .toList();
-      print(addressCards);
+
       emit(getAllAddressSuccess());
     } else {
       emit(getAllAddressfaliure(errMsg: responseBody[ApiKey.message]));

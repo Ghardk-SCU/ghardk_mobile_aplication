@@ -16,7 +16,10 @@ Future<void> main() async {
   userToken = await CacheNetwork.getCacheData(key: 'token');
   runApp(MultiBlocProvider(
     providers: [
-      BlocProvider(create: (context) => AddressCubit()),
+      BlocProvider(
+          create: (context) => AddressCubit()
+            ..allcountries
+            ..allAddress),
       BlocProvider(
         create: (context) => UserCubit()..getUserProfile(),
       ),

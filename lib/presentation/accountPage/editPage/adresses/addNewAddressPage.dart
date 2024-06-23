@@ -32,14 +32,14 @@ class _addNewAddressPageState extends State<addNewAddressPage> {
   @override
   Widget build(BuildContext context) {
     final allcountries = BlocProvider.of<AddressCubit>(context).allcountries;
-    Map<String, int> countries = {
-      for (var country in allcountries) country.name: country.id
+    Map<int, String> countries = {
+      for (var country in allcountries) country.id: country.name
     };
     List<DropdownMenuItem<int>> dropdownItems =
         countries.entries.map<DropdownMenuItem<int>>((e) {
       return DropdownMenuItem<int>(
-        value: e.value,
-        child: Text(e.key.toString()),
+        value: e.key,
+        child: Text(e.value),
       );
     }).toList();
 

@@ -1,3 +1,4 @@
+import 'package:final_project/model/Cubits/Address_cubit/address_cubit.dart';
 import 'package:final_project/model/Cubits/user_cubit/user_cubit.dart';
 import 'package:final_project/presentation/accountPage/accountPageBody/accountPageBody.dart';
 import 'package:final_project/presentation/accountPage/customAppBar/customAccountAppBar.dart';
@@ -9,6 +10,7 @@ class accountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = BlocProvider.of<AddressCubit>(context);
     return Scaffold(
       body: SafeArea(
         child: BlocConsumer<UserCubit, UserState>(
@@ -32,7 +34,9 @@ class accountPage extends StatelessWidget {
                             name:
                                 '${state.user.firstName} ${state.user.lastName}',
                             img: 'assets/images/nasr.png',
-                            location: 'Cairo, Helwan',
+                            location: cubit.allAddress.length < 1
+                                ? ' , '
+                                : '${cubit.allAddress[0].country}, ${cubit.allAddress[0].city}',
                           ),
                           Expanded(child: accountPageBody()),
                         ],

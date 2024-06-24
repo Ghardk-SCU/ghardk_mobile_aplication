@@ -6,11 +6,21 @@ import 'package:flutter/material.dart';
 class cartContainer extends StatelessWidget {
   const cartContainer({
     super.key,
+    required this.sellerName,
+    required this.productName,
+    required this.productDesc,
+    required this.price,
+    required this.quantity,
+    required this.productdate,
+    required this.deleteButton,
   });
-
+  final String sellerName, productName, productDesc;
+  final double price;
+  final int quantity;
+  final DateTime productdate;
+  final Function() deleteButton;
   @override
   Widget build(BuildContext context) {
-    int count = 0;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Container(
@@ -23,21 +33,24 @@ class cartContainer extends StatelessWidget {
         child: Column(
           children: [
             topContainerOnCart(
-                img: 'assets/images/nasr.png', name: 'Mohammed Nasr'),
+                img: 'assets/images/nasr.png',
+                name: sellerName,
+                deleteButton: deleteButton),
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: cartInfo(
-                title: 'Chicken strips',
-                desc:
-                    'Chicken strips with mushrooms sauce and melted cheddar cheese.',
-                price: 9.35,
+                title: productName,
+                desc: productDesc,
+                price: price,
                 img: "assets/images/Rectangle36.png",
-                count: count,
+                count: quantity,
               ),
             ),
             Spacer(),
-            bottomContainerOnCart(),
+            bottomContainerOnCart(
+              productdate: productdate,
+            ),
           ],
         ),
       ),

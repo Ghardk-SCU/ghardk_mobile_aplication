@@ -1,3 +1,4 @@
+import 'package:final_project/model/Cubits/Product_cubit/product_cubit.dart';
 import 'package:final_project/model/Cubits/user_cubit/user_cubit.dart';
 import 'package:final_project/presentation/accountPage/BuyerPage/products/BuyerOffers/AddNewProductScreen.dart';
 import 'package:final_project/presentation/accountPage/BuyerPage/products/BuyerOffers/AddProductButton.dart';
@@ -18,32 +19,61 @@ class ProductsPage extends StatelessWidget {
     bool isVendor = BlocProvider.of<UserCubit>(context).userr!.role == 'vendor'
         ? true
         : false;
-
-    return Column(
-      children: [
-        Visibility(
-          visible: isVendor,
-          child: AddProductButton(ontap: () => Get.to(AddNewProductScreen())),
-        ),
-        ListView.builder(
-          itemCount: 10,
-          physics: BouncingScrollPhysics(),
-          shrinkWrap: true,
-          itemBuilder: (context, index) {
-            return buyerOfferCard(
-              title: 'Chicken Mushrooms Burger',
-              desc:
-                  'Chicken strips with mushrooms sauce and melted cheddar cheese.',
-              price: 50.36,
-              quantity: 4,
-              img: 'assets/images/burger-removebg-preview.png',
-              EditProductFun: () {
-                Get.to(() => EditProductScreen());
-              },
-            );
-          },
-        ),
-      ],
+    final cubit = BlocProvider.of<ProductCubit>(context);
+    return BlocConsumer<ProductCubit, ProductState>(
+      listener: (context, state) {
+        if (state is getAllProductFaliure) {
+          var snackBar = SnackBar(content: Text('Something went wrong'));
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        }
+      },
+      builder: (context, state) {
+        return state is getAllProductLoading
+            ? Center(child: CircularProgressIndicator())
+            : state is getAllProductSuccsess
+                ? Column(
+                    children: [
+                      Visibility(
+                        visible: isVendor,
+                        child: AddProductButton(
+                            ontap: () => Get.to(AddNewProductScreen())),
+                      ),
+                      ListView.builder(
+                        itemCount: cubit.allProducts.length,
+                        physics: BouncingScrollPhysics(),
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          return buyerOfferCard(
+                            title: cubit.allProducts[index].name,
+                            desc: cubit.allProducts[index].description,
+                            price: cubit.allProducts[index].price,
+                            quantity: cubit.allProducts[index].quantity,
+                            img: 'assets/images/burger-removebg-preview.png',
+                            EditProductFun: () {
+                              Get.to(() => EditProductScreen());
+                            },
+                          );
+                        },
+                      ),
+                    ],
+                  )
+                : Column(
+                    children: [
+                      Center(
+                          child: Text('No Found Products',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold))),
+                      SizedBox(height: 30),
+                      Visibility(
+                        visible: isVendor,
+                        child: AddProductButton(
+                            ontap: () => Get.to(AddNewProductScreen())),
+                      ),
+                    ],
+                  );
+      },
     );
   }
 }

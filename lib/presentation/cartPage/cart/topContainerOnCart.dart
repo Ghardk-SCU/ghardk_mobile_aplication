@@ -6,8 +6,10 @@ class topContainerOnCart extends StatelessWidget {
     super.key,
     required this.name,
     required this.img,
+    required this.deleteButton,
   });
   final String name, img;
+  final Function() deleteButton;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,7 +30,7 @@ class topContainerOnCart extends StatelessWidget {
                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400)),
             const Spacer(),
             InkWell(
-              onTap: () {},
+              onTap: deleteButton,
               child: Icon(Icons.close),
             ),
           ],

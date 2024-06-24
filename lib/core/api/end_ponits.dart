@@ -16,6 +16,7 @@ class EndPoint {
   static String addFavorite = "favourites";
   static String Cart = "carts";
   static String AddToCart = "products/1/carts/item";
+  static String changePassword = "users/change-password";
 }
 
 class ApiKey {

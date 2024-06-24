@@ -77,7 +77,9 @@ class cartInfo extends StatelessWidget {
             Text('EGP ${price.toString()}',
                 style:
                     const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-            incrementAndDecrementButtons(),
+            incrementAndDecrementButtons(
+              count: count,
+            ),
           ],
         ),
       ],

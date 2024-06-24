@@ -8,17 +8,6 @@ class cartEmpty extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        shape: const RoundedRectangleBorder(side: BorderSide(width: 0.4)),
-        automaticallyImplyLeading: false,
-        title: const Text('Cart',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w500,
-                color: Colors.black)),
-        elevation: 0.5,
-      ),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

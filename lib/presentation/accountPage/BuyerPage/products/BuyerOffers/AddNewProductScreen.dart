@@ -5,10 +5,13 @@ import 'package:final_project/model/Cubits/user_cubit/user_cubit.dart';
 import 'package:final_project/model/Models/productModel.dart';
 import 'package:final_project/presentation/accountPage/BuyerPage/products/BuyerOffers/CategoryDropDowmItem.dart';
 import 'package:final_project/presentation/accountPage/BuyerPage/products/BuyerOffers/addNewProductButton.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/products/BuyerOffers/addPhotoForProduct.dart';
 import 'package:final_project/presentation/accountPage/BuyerPage/products/BuyerOffers/textfieldProduct.dart';
 import 'package:final_project/presentation/accountPage/widget/customAccAppBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class AddNewProductScreen extends StatefulWidget {
   const AddNewProductScreen({super.key});
@@ -44,6 +47,7 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
                 content: Text('You have been added address successfully'));
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
             Duration(milliseconds: 500);
+            //Get.to(addPhotoForProduct());
           } else if (state is AddProductFaliure) {
             var snackBar = SnackBar(content: Text('${state.errMsg}'));
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
@@ -112,7 +116,7 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
                             name: nameProductController.text,
                             description: descProductController.text,
                             categoryId: _Selectedcategory!,
-                            price: double.parse(priceProductController.text),
+                            price: priceProductController.text,
                             quantity:
                                 int.parse(quantityProductController.text));
                         BlocProvider.of<ProductCubit>(context)

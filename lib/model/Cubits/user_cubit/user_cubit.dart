@@ -156,4 +156,29 @@ class UserCubit extends Cubit<UserState> {
       emit(ResetPasswordfaliure(errMsg: responseBody[ApiKey.message]));
     }
   }
+
+  Future<void> changePassword(
+      {required String currpassword,
+      required String newpassword,
+      required String confirmnewpassword}) async {
+    emit(changePasswordLoading());
+    String? token = await CacheNetwork.getCacheData(key: 'token');
+    final response = await http.patch(
+        Uri.parse('${EndPoint.baseUrl}${EndPoint.changePassword}'),
+        headers: {
+          "Content-Type": "application/json",
+          'Authorization': 'Bearer $token'
+        },
+        body: jsonEncode({
+          "current_password": currpassword,
+          "new_password": newpassword,
+          "new_password_confirm": confirmnewpassword
+        }));
+    var responseBody = jsonDecode(response.body);
+    if (responseBody[ApiKey.status] == 'success') {
+      emit(changePasswordsuccess());
+    } else {
+      emit(changePasswordfaliure(errMsg: responseBody[ApiKey.message]));
+    }
+  }
 }

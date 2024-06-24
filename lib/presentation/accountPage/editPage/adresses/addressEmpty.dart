@@ -45,7 +45,12 @@ class AdressesEmpty extends StatelessWidget {
                       ontap: () {
                         Get.to(addNewAddressPage());
                       },
-                      text: 'Add Address'),
+                      child: Center(
+                          child: Text('Add',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600)))),
                 ],
               ),
             ),

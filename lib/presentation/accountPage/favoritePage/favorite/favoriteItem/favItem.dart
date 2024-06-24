@@ -11,7 +11,7 @@ class favItem extends StatefulWidget {
       required this.sellerName,
       required this.price});
   final String productName, sellerName;
-  final double price;
+  final String price;
   @override
   State<favItem> createState() => _favItemState();
 }
@@ -97,7 +97,7 @@ class lowerItem extends StatelessWidget {
       required this.sellerName,
       required this.price});
   final String productName, sellerName;
-  final double price;
+  final String price;
   @override
   Widget build(BuildContext context) {
     return Padding(

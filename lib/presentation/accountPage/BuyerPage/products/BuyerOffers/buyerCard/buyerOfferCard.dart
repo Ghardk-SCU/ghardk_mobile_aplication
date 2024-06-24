@@ -14,7 +14,7 @@ class buyerOfferCard extends StatelessWidget {
     required this.EditProductFun,
   });
   final String title, desc, img;
-  final double price;
+  final String price;
   final int quantity;
   final VoidCallback EditProductFun;
   @override

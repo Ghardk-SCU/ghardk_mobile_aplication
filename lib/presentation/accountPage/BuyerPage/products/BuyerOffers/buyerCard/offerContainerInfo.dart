@@ -14,8 +14,9 @@ class offerContainerInfo extends StatelessWidget {
     required this.ontap,
     required this.quantity,
   });
-  final String maintitle, desctitle;
-  final double price, rateRating, ratePeople;
+  final String maintitle, desctitle, price;
+
+  final double rateRating, ratePeople;
   final int quantity;
   final VoidCallback ontap;
   @override
@@ -50,7 +51,7 @@ class offerContainerInfo extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        'Price: ${price.toInt()} EGP',
+                        'Price: ${price} EGP',
                         style: TextStyle(
                             fontSize: 12, fontWeight: FontWeight.w500),
                       ),

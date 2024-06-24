@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class incrementAndDecrementButtons extends StatefulWidget {
   incrementAndDecrementButtons({
     super.key,
-    this.count = 0,
+    required this.count,
   });
   late int count;
   @override

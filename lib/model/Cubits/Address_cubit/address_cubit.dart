@@ -55,9 +55,11 @@ class AddressCubit extends Cubit<AddressState> {
 
     if (response.statusCode == 200) {
       print('Successfully deleted the data.');
+      await getAllAddress();
       emit(deleteAddressSuccess());
     } else {
       print('Failed to delete the data. Status code: ${response.statusCode}');
+      await getAllAddress();
     }
   }
 

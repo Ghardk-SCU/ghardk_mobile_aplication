@@ -110,7 +110,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                             name: nameProductController.text,
                             description: descProductController.text,
                             categoryId: _Selectedcategory!,
-                            price: double.parse(priceProductController.text),
+                            price: priceProductController.text,
                             quantity:
                                 int.parse(quantityProductController.text));
                         BlocProvider.of<ProductCubit>(context)

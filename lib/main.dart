@@ -2,9 +2,11 @@ import 'package:final_project/core/shared/network/local_network.dart';
 import 'package:final_project/core/utilits/constant.dart';
 import 'package:final_project/model/Cubits/Address_cubit/address_cubit.dart';
 import 'package:final_project/model/Cubits/Product_cubit/product_cubit.dart';
+import 'package:final_project/model/Cubits/cart_cubit/cart_cubit.dart';
 import 'package:final_project/model/Cubits/category_cubit/category_cubit.dart';
 import 'package:final_project/model/Cubits/user_cubit/user_cubit.dart';
 import 'package:final_project/presentation/Login&signup/loginAndSignupScreen/loginAndSignupScreen.dart';
+import 'package:final_project/presentation/accountPage/BuyerPage/products/BuyerOffers/addPhotoForProduct.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -16,10 +18,8 @@ Future<void> main() async {
   userToken = await CacheNetwork.getCacheData(key: 'token');
   runApp(MultiBlocProvider(
     providers: [
-      BlocProvider(
-          create: (context) => AddressCubit()
-            ..allcountries
-            ..allAddress),
+      BlocProvider(create: (context) => AddressCubit()),
+      BlocProvider(create: (context) => CartCubit()),
       BlocProvider(
         create: (context) => UserCubit()..getUserProfile(),
       ),

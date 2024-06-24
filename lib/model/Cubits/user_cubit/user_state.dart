@@ -70,6 +70,17 @@ final class ResetPasswordfaliure extends UserState {
   ResetPasswordfaliure({required this.errMsg});
 }
 
+final class changePasswordInitial extends UserState {}
+
+final class changePasswordLoading extends UserState {}
+
+final class changePasswordsuccess extends UserState {}
+
+final class changePasswordfaliure extends UserState {
+  final String errMsg;
+  changePasswordfaliure({required this.errMsg});
+}
+
 final class userInfoInitial extends UserState {}
 
 final class userInfoLoading extends UserState {}

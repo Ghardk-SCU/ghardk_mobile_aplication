@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:final_project/core/api/end_ponits.dart';
 import 'package:final_project/core/shared/network/local_network.dart';
+import 'package:final_project/model/Models/cartProductModel.dart';
 import 'package:final_project/model/Models/productModel.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
@@ -12,8 +13,8 @@ part 'cart_state.dart';
 class CartCubit extends Cubit<CartState> {
   CartCubit() : super(CartInitial());
 
-  List<ProductModel> carts = [];
-  int totalPrice = 0;
+  List<ProductOrderModel> carts = [];
+  double totalPrice = 0.0;
   Future<void> getCarts() async {
     carts.clear();
     String? token = await CacheNetwork.getCacheData(key: 'token');
@@ -24,9 +25,9 @@ class CartCubit extends Cubit<CartState> {
     var responseBody = jsonDecode(response.body);
     if (responseBody[ApiKey.status] == 'success') {
       for (var item in responseBody['data']['cartProducts']) {
-        carts.add(ProductModel.fromJson(item));
+        carts.add(ProductOrderModel.fromJson(item));
       }
-      totalPrice = responseBody['data']['total'];
+      totalPrice = responseBody['data']['checkout_price'].toDouble();
       debugPrint("Carts length is : ${carts.length}");
       emit(CartSuccess());
     } else {
@@ -50,19 +51,16 @@ class CartCubit extends Cubit<CartState> {
     }
   }
 
-  Future<void> deleteFromCart() async {
+  Future<void> deleteFromCart({required int ID}) async {
     String? token = await CacheNetwork.getCacheData(key: 'token');
-    emit(deleteFromCartLoading());
-    final response = await http.delete(
-      Uri.parse("${EndPoint.baseUrl}carts/1 "),
+    await http.delete(
+      Uri.parse("${EndPoint.baseUrl}carts/$ID"),
       headers: {'Authorization': 'Bearer $token', "lang": "en"},
     );
-
-    var responseBody = jsonDecode(response.body);
-    if (responseBody[ApiKey.status] == 'success') {
-      emit(deleteFromCartSuccess());
-    } else {
-      emit(deleteFromCartFaliure(errMsg: responseBody[ApiKey.message]));
-    }
+    carts.removeWhere((item) => item.id == ID);
+    totalPrice = carts.fold(0,
+        (sum, item) => sum + double.parse(item.productPrice) * item.quantity);
+    if (totalPrice == 25.02) totalPrice = 0.0;
+    await getCarts();
   }
 }

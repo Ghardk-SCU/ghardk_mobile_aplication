@@ -34,9 +34,7 @@ class editPage extends StatelessWidget {
           customListTile(
               title: 'Addresses',
               ontap: () {
-                foundCountry
-                    ? Get.to(() => const addressesPage())
-                    : Get.to(() => const AdressesEmpty());
+                Get.to(() => const addressesPage());
               },
               icon: Icons.share_location),
           customListTile(

@@ -27,6 +27,18 @@ final class addToCartFaliure extends CartState {
   addToCartFaliure({required this.errMsg});
 }
 
+final class checkoutInitial extends CartState {}
+
+final class checkoutLoading extends CartState {}
+
+final class checkoutSuccess extends CartState {}
+
+final class checkoutFaliure extends CartState {
+  final String errMsg;
+
+  checkoutFaliure({required this.errMsg});
+}
+
 final class deleteFromCartInitial extends CartState {}
 
 final class deleteFromCartLoading extends CartState {}

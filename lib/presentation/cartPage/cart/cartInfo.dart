@@ -74,7 +74,7 @@ class cartInfo extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('EGP ${price.toString()}',
+            Text('EGP ${price.toStringAsFixed(2)}',
                 style:
                     const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
             incrementAndDecrementButtons(

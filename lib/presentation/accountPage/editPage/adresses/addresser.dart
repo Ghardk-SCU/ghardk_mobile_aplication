@@ -25,13 +25,7 @@ class addressesPage extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-      body: BlocConsumer<AddressCubit, AddressState>(
-        listener: (context, state) {
-          if (state is getAllAddressfaliure) {
-            var snackBar = SnackBar(content: Text('${state.errMsg}'));
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          }
-        },
+      body: BlocBuilder<AddressCubit, AddressState>(
         builder: (context, state) {
           final allcountries =
               BlocProvider.of<AddressCubit>(context).allcountries;
@@ -42,37 +36,37 @@ class addressesPage extends StatelessWidget {
           if (state is getAllAddressLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is getAllAddressSuccess) {
-            return Column(
-              children: [
-                customAccAppBar(text: 'Addresses'),
-                Expanded(
-                  child: ListView.builder(
-                    padding: EdgeInsets.all(16),
-                    keyboardDismissBehavior:
-                        ScrollViewKeyboardDismissBehavior.onDrag,
-                    physics: BouncingScrollPhysics(),
-                    itemCount: cubit.allAddress.length,
-                    itemBuilder: (context, index) {
-                      return AddressCard(
-                        country: cubit.allAddress[index].country,
-                        city: cubit.allAddress[index].city,
-                        description: cubit.allAddress[index].description,
-                        StreetName: cubit.allAddress[index].streetName,
-                        postalCode: cubit.allAddress[index].postalCode,
-                        ontap: () {
-                          context
-                              .read<AddressCubit>()
-                              .deleteAddress(ID: cubit.allAddress[index].id);
-                        },
-                      );
-                    },
-                  ),
-                ),
-              ],
-            );
-          } else {
-            return const AdressesEmpty();
+            return cubit.allAddress.isEmpty
+                ? AdressesEmpty()
+                : Column(
+                    children: [
+                      customAccAppBar(text: 'Addresses'),
+                      Expanded(
+                        child: ListView.builder(
+                          padding: EdgeInsets.all(16),
+                          keyboardDismissBehavior:
+                              ScrollViewKeyboardDismissBehavior.onDrag,
+                          physics: BouncingScrollPhysics(),
+                          itemCount: cubit.allAddress.length,
+                          itemBuilder: (context, index) {
+                            return AddressCard(
+                              country: cubit.allAddress[index].country,
+                              city: cubit.allAddress[index].city,
+                              description: cubit.allAddress[index].description,
+                              StreetName: cubit.allAddress[index].streetName,
+                              postalCode: cubit.allAddress[index].postalCode,
+                              ontap: () {
+                                context.read<AddressCubit>().deleteAddress(
+                                    ID: cubit.allAddress[index].id);
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  );
           }
+          return Container();
         },
       ),
     );

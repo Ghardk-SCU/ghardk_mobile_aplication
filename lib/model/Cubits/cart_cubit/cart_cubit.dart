@@ -51,6 +51,22 @@ class CartCubit extends Cubit<CartState> {
     }
   }
 
+  Future<void> checkout() async {
+    String? token = await CacheNetwork.getCacheData(key: 'token');
+    emit(checkoutLoading());
+    final response = await http.patch(
+        Uri.parse("${EndPoint.baseUrl}sales/checkout"),
+        headers: {'Authorization': 'Bearer $token', "lang": "en"});
+    var responseBody = jsonDecode(response.body);
+    if (responseBody[ApiKey.status] == 'success') {
+      emit(checkoutSuccess());
+      print('success');
+    } else {
+      emit(checkoutFaliure(errMsg: responseBody[ApiKey.message]));
+      print('faliure');
+    }
+  }
+
   Future<void> deleteFromCart({required int ID}) async {
     String? token = await CacheNetwork.getCacheData(key: 'token');
     await http.delete(

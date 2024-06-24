@@ -53,14 +53,9 @@ class AddressCubit extends Cubit<AddressState> {
           'Content-Type': 'application/json',
         });
 
-    if (response.statusCode == 200) {
-      print('Successfully deleted the data.');
-      await getAllAddress();
-      emit(deleteAddressSuccess());
-    } else {
-      print('Failed to delete the data. Status code: ${response.statusCode}');
-      await getAllAddress();
-    }
+    allAddress.removeWhere((item) => item.id == ID);
+    await getAllAddress();
+    emit(deleteAddressSuccess());
   }
 
   List<AddressModel> allAddress = [];

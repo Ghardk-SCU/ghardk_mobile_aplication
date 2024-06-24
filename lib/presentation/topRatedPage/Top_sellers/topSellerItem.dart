@@ -4,8 +4,18 @@ import 'package:final_project/presentation/topRatedPage/Top_sellers/medal.dart';
 import 'package:flutter/material.dart';
 
 class topSellerItem extends StatelessWidget {
-  topSellerItem({super.key, required this.idx});
+  topSellerItem(
+      {super.key,
+      required this.idx,
+      required this.sellerName,
+      required this.sellerImage,
+      required this.sellerDescraption,
+      required this.rating_count,
+      required this.ratingof5});
   final int idx;
+  final String sellerName, sellerImage, sellerDescraption;
+  final int rating_count;
+  final double ratingof5;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,8 +31,15 @@ class topSellerItem extends StatelessWidget {
           child: Stack(
             clipBehavior: Clip.none,
             children: [
-              itemInfo(),
-              descContainer(),
+              itemInfo(
+                sellerName: sellerName,
+                sellerImage: sellerImage,
+                ratingof5: ratingof5,
+                rating_count: rating_count,
+              ),
+              descContainer(
+                descraption: sellerDescraption,
+              ),
               if (idx == 0)
                 medal(img: 'assets/images/medal/Rank1.png')
               else if (idx == 1)

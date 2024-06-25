@@ -15,7 +15,12 @@ part 'product_state.dart';
 class ProductCubit extends Cubit<ProductState> {
   ProductCubit() : super(ProductInitial());
 
-  Future addProduct(ProductModel product) async {
+  Future addProduct(
+      {required String name,
+      required String description,
+      required int categoryId,
+      required double price,
+      required int quantity}) async {
     emit(AddProductLoading());
     String? token = await CacheNetwork.getCacheData(key: 'token');
     final response =
@@ -25,11 +30,11 @@ class ProductCubit extends Cubit<ProductState> {
               'Content-Type': 'application/json',
             },
             body: jsonEncode({
-              "name": product.name,
-              "description": product.description,
-              "category_id": product.categoryId,
-              "price": product.price,
-              "quantity": product.quantity
+              "name": name,
+              "description": description,
+              "category_id": categoryId,
+              "price": price,
+              "quantity": quantity
             }));
 
     var responseBody = jsonDecode(response.body);

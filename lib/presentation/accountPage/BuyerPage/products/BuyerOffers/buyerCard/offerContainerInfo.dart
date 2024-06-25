@@ -14,9 +14,9 @@ class offerContainerInfo extends StatelessWidget {
     required this.ontap,
     required this.quantity,
   });
-  final String maintitle, desctitle, price;
+  final String maintitle, desctitle;
 
-  final double rateRating, ratePeople;
+  final double rateRating, ratePeople, price;
   final int quantity;
   final VoidCallback ontap;
   @override

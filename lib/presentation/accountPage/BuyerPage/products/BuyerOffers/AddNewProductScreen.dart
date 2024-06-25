@@ -112,15 +112,13 @@ class _AddNewProductScreenState extends State<AddNewProductScreen> {
                               style:
                                   TextStyle(color: Colors.white, fontSize: 18)),
                       ontap: () {
-                        final product = ProductModel(
+                        BlocProvider.of<ProductCubit>(context).addProduct(
                             name: nameProductController.text,
                             description: descProductController.text,
                             categoryId: _Selectedcategory!,
-                            price: priceProductController.text,
+                            price: double.parse(priceProductController.text),
                             quantity:
                                 int.parse(quantityProductController.text));
-                        BlocProvider.of<ProductCubit>(context)
-                            .addProduct(product);
                       },
                     ),
                   ]),

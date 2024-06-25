@@ -4,6 +4,7 @@ import 'package:final_project/model/Cubits/Address_cubit/address_cubit.dart';
 import 'package:final_project/model/Cubits/Product_cubit/product_cubit.dart';
 import 'package:final_project/model/Cubits/cart_cubit/cart_cubit.dart';
 import 'package:final_project/model/Cubits/category_cubit/category_cubit.dart';
+import 'package:final_project/model/Cubits/favorites_cubit/favorites_cubit.dart';
 import 'package:final_project/model/Cubits/topRatedSeller_cubit/top_rated_seller_cubit.dart';
 import 'package:final_project/model/Cubits/user_cubit/user_cubit.dart';
 import 'package:final_project/presentation/Login&signup/loginAndSignupScreen/loginAndSignupScreen.dart';
@@ -22,6 +23,7 @@ Future<void> main() async {
       BlocProvider(
           create: (context) => TopRatedSellerCubit()..getAllTopRatedSellers()),
       BlocProvider(create: (context) => AddressCubit()),
+      BlocProvider(create: (context) => FavoritesCubit()..getFavorites()),
       BlocProvider(create: (context) => CartCubit()),
       BlocProvider(
         create: (context) => UserCubit()..getUserProfile(),

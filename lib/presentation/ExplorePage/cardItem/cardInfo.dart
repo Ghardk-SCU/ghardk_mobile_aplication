@@ -8,8 +8,15 @@ import 'package:get/get_core/src/get_main.dart';
 class cardInfo extends StatefulWidget {
   const cardInfo({
     super.key,
+    required this.sellerName,
+    required this.productName,
+    required this.ProductDescription,
+    required this.price,
+    required this.ontap,
   });
-
+  final String sellerName, productName, ProductDescription;
+  final double price;
+  final VoidCallback ontap;
   @override
   State<cardInfo> createState() => _cardInfoState();
 }
@@ -33,7 +40,7 @@ class _cardInfoState extends State<cardInfo> {
                 Get.to(buyerPage());
               },
               child: Text(
-                'Mohammed Nasr',
+                widget.sellerName,
                 style: StylesData.favSellerNameStyle,
               ),
             ),
@@ -44,10 +51,13 @@ class _cardInfoState extends State<cardInfo> {
                   isLiked = !isLiked;
                 });
               },
-              child: Icon(
-                isLiked ? Icons.favorite : Icons.favorite_border_sharp,
-                color: isLiked ? Colors.red : Colors.grey,
-                size: 20,
+              child: InkWell(
+                onTap: widget.ontap,
+                child: Icon(
+                  isLiked ? Icons.favorite : Icons.favorite_border_sharp,
+                  color: isLiked ? Colors.red : Colors.grey,
+                  size: 20,
+                ),
               ),
             ),
           ],
@@ -72,10 +82,9 @@ class _cardInfoState extends State<cardInfo> {
 
         SizedBox(height: 10),
         ExploreCardDetails(
-          maintitle: 'Chicken Mushrooms Burger',
-          desctitle:
-              'Chicken strips with mushrooms sauce and melted cheddar cheese.',
-          price: 50,
+          maintitle: widget.productName,
+          desctitle: widget.ProductDescription,
+          price: widget.price,
           ratePeople: 1025,
           rateRating: 3.5,
           ontap: () {},

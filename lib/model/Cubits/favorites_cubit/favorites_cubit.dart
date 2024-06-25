@@ -10,7 +10,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
   FavoritesCubit() : super(FavoritesInitial());
 
   List<ProductModel> favorites = [];
-  Set<String> favoritesID = {};
+  Set<int> favoritesID = {};
 
   Future<void> getFavorites() async {
     favorites.clear();
@@ -26,7 +26,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
     if (responseBody[ApiKey.status] == 'success') {
       for (var item in responseBody['data']['favouriteProducts']) {
         favorites.add(ProductModel.fromJson(item));
-        favoritesID.add(item['id'].toString());
+        favoritesID.add(item['id']);
       }
       print("Favorites number is : ${favorites.length}");
       emit(getAllFavoritesSuccsess());
@@ -35,7 +35,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
     }
   }
 
-  void addOrRemoveFromFavorites({required String productID}) async {
+  void addOrRemoveFromFavorites({required int productID}) async {
     String? token = await CacheNetwork.getCacheData(key: 'token');
     emit(addOrRemoveFromFavoritesLoading());
     final response = await http.post(

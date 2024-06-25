@@ -7,8 +7,15 @@ import 'package:get/get.dart';
 class ExploreCard extends StatelessWidget {
   const ExploreCard({
     super.key,
+    required this.sellerName,
+    required this.productName,
+    required this.ProductDescription,
+    required this.price,
+    required this.FavoriteButtonFun,
   });
-
+  final String sellerName, productName, ProductDescription;
+  final double price;
+  final VoidCallback FavoriteButtonFun;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -23,7 +30,13 @@ class ExploreCard extends StatelessWidget {
             border: Border.all(width: 0.4, color: Colors.grey),
           ),
           width: 200,
-          child: cardInfo(),
+          child: cardInfo(
+            ontap: FavoriteButtonFun,
+            price: price,
+            sellerName: sellerName,
+            productName: productName,
+            ProductDescription: ProductDescription,
+          ),
         ),
       ),
     );

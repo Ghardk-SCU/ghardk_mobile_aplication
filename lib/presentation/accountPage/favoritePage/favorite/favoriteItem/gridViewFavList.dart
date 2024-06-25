@@ -21,7 +21,7 @@ class gridViewFavList extends StatelessWidget {
             return favItem(
                 productName: 'Mini Camera Figure',
                 sellerName: 'Mahmoud Elsayed',
-                price: '15.65');
+                price: 15.26);
           }),
     );
   }

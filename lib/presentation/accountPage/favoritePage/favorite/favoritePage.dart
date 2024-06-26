@@ -12,7 +12,7 @@ class favoritePage extends StatelessWidget {
       children: [
         customAccAppBar(text: "Favorites"),
         SizedBox(height: 20),
-        Expanded(child: gridViewFavList()),
+        Expanded(child: gridViewFavList1()),
       ],
     ));
   }

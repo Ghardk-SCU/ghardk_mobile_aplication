@@ -34,8 +34,6 @@ class categoryListView extends StatelessWidget {
                     children: [
                       menuListView(),
                       Container(),
-                      Container(),
-                      Container(),
                     ],
                   ),
                 ),

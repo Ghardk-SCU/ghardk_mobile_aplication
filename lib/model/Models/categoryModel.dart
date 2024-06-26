@@ -1,16 +1,13 @@
 class CategoryModel {
   final int id;
   final String name;
-  int? parentCategoryId; // Nullable parent category ID
-  final String createdAt;
-  final String updatedAt;
+  int? parentCategoryId;
+  String? image_url;
 
   CategoryModel({
     required this.id,
     required this.name,
     this.parentCategoryId,
-    required this.createdAt,
-    required this.updatedAt,
   });
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) {
@@ -18,8 +15,6 @@ class CategoryModel {
       id: json['id'],
       name: _capitalizeFirstLetter(json['name']),
       parentCategoryId: json['parent_category_id'],
-      createdAt: json['createdAt'],
-      updatedAt: json['updatedAt'],
     );
   }
 

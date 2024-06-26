@@ -21,7 +21,7 @@ class CategoryCubit extends Cubit<CategoryState> {
     });
     var responseBody = jsonDecode(response.body);
     if (responseBody['${ApiKey.status}'] == 'success') {
-      for (var category in responseBody['data']['docs']) {
+      for (var category in responseBody['data']['categories']) {
         categories.add(
           CategoryModel.fromJson(category),
         );

@@ -53,19 +53,19 @@ class ProductCubit extends Cubit<ProductState> {
     allProducts.clear();
     emit(getAllProductLoading());
     String? token = await CacheNetwork.getCacheData(key: 'token');
-    final response = await http
-        .get(Uri.parse('${EndPoint.baseUrl}products/myProducts'), headers: {
+    final response =
+        await http.get(Uri.parse('${EndPoint.baseUrl}products'), headers: {
       "Content-Type": "application/json",
       'Authorization': 'Bearer $token',
     });
     var responseBody = jsonDecode(response.body);
     if (responseBody['${ApiKey.status}'] == 'success') {
-      for (var category in responseBody['data']['productItems']) {
+      for (var category in responseBody['data']['docs']) {
         allProducts.add(
           ProductModel.fromJson(category),
         );
       }
-      print(allProducts.length);
+      print('Products Length : ${allProducts.length}');
       emit(getAllProductSuccsess());
     } else {
       emit(getAllProductFaliure(errMsg: responseBody[ApiKey.message]));

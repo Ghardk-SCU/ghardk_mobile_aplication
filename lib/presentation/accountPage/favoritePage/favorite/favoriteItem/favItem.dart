@@ -9,9 +9,11 @@ class favItem extends StatefulWidget {
       {super.key,
       required this.productName,
       required this.sellerName,
-      required this.price});
+      required this.price,
+      required this.removeFavorite});
   final String productName, sellerName;
   final double price;
+  final VoidCallback removeFavorite;
   @override
   State<favItem> createState() => _favItemState();
 }
@@ -30,7 +32,9 @@ class _favItemState extends State<favItem> {
           ),
           child: Column(
             children: [
-              upperItem(),
+              upperItem(
+                ontap: widget.removeFavorite,
+              ),
               lowerItem(
                   productName: widget.productName,
                   sellerName: widget.sellerName,
@@ -43,15 +47,9 @@ class _favItemState extends State<favItem> {
   }
 }
 
-class upperItem extends StatefulWidget {
-  const upperItem({super.key});
-
-  @override
-  State<upperItem> createState() => _upperItemState();
-}
-
-class _upperItemState extends State<upperItem> {
-  bool isLiked = false;
+class upperItem extends StatelessWidget {
+  const upperItem({super.key, required this.ontap});
+  final VoidCallback ontap;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -73,16 +71,9 @@ class _upperItemState extends State<upperItem> {
           child: customButton(
             width: 35,
             height: 35,
-            icon: Icon(
-              isLiked ? Icons.favorite : Icons.favorite_border_outlined,
-              color: isLiked ? Colors.red : Colors.black,
-            ),
+            icon: Icon(Icons.favorite, color: Colors.red),
             color: Colors.white,
-            ontap: () {
-              setState(() {
-                isLiked = !isLiked;
-              });
-            },
+            ontap: ontap,
           ),
         ),
       ],

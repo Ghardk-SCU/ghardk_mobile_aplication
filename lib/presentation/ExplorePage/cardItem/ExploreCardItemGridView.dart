@@ -5,7 +5,7 @@ import 'package:final_project/presentation/ExplorePage/cardItem/ExploreCard.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ExploreCardItemGridView extends StatelessWidget {
+/* class ExploreCardItemGridView extends StatelessWidget {
   const ExploreCardItemGridView({super.key});
 
   @override
@@ -31,9 +31,9 @@ class ExploreCardItemGridView extends StatelessWidget {
           }),
     );
   }
-} 
+}  */
 
-/* class ExploreCardItemGridView extends StatelessWidget {
+class ExploreCardItemGridView extends StatelessWidget {
   const ExploreCardItemGridView({super.key});
 
   @override
@@ -60,17 +60,32 @@ class ExploreCardItemGridView extends StatelessWidget {
                         crossAxisSpacing: 0,
                         mainAxisSpacing: 4,
                         builder: (ctx, index) {
-                          return ExploreCard(
-                            price: cubit.allProducts[index].price,
-                            sellerName: cubit.allProducts[index].name,
-                            productName: cubit.allProducts[index].name,
-                            ProductDescription:
-                                cubit.allProducts[index].description,
-                            FavoriteButtonFun: () {
-                              BlocProvider.of<FavoritesCubit>(context)
-                                  .addOrRemoveFromFavorites(
-                                      productID: cubit.allProducts[index].id);
+                          return BlocListener<FavoritesCubit, FavoritesState>(
+                            listener: (context, state) {
+                              if (state is addToFavoritesFaliure) {
+                                var snackBar =
+                                    SnackBar(content: Text('${state.errMsg}'));
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                              } else if (state is addToFavoritesSuccsess) {
+                                var snackBar =
+                                    SnackBar(content: Text('Successfully'));
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                              }
                             },
+                            child: ExploreCard(
+                              price: 30.5, //cubit.allProducts[index].price,
+                              sellerName: cubit.allProducts[index].name,
+                              productName: cubit.allProducts[index].name,
+                              ProductDescription:
+                                  cubit.allProducts[index].description,
+                              FavoriteButtonFun: () {
+                                BlocProvider.of<FavoritesCubit>(context)
+                                    .addToFavorites(
+                                        ID: cubit.allProducts[index].id);
+                              },
+                            ),
                           );
                         }),
                   )
@@ -78,4 +93,4 @@ class ExploreCardItemGridView extends StatelessWidget {
       },
     );
   }
-} */
+}

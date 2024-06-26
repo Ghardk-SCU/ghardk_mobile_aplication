@@ -4,7 +4,7 @@ class TopRatedSellerModel {
   String lastName;
   String userName;
   String email;
-  DateTime dob;
+  String dob;
   String role;
   bool active;
   String gender;
@@ -38,7 +38,7 @@ class TopRatedSellerModel {
       lastName: json['last_name'],
       userName: json['user_name'],
       email: json['email'],
-      dob: DateTime.parse(json['dob']),
+      dob: json['dob'] ?? "",
       role: json['role'],
       active: json['active'],
       gender: json['gender'],
@@ -57,7 +57,7 @@ class TopRatedSellerModel {
       'last_name': lastName,
       'user_name': userName,
       'email': email,
-      'dob': dob.toIso8601String(),
+      //'dob': dob,
       'role': role,
       'active': active,
       'gender': gender,

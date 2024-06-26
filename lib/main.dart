@@ -23,7 +23,7 @@ Future<void> main() async {
       BlocProvider(
           create: (context) => TopRatedSellerCubit()..getAllTopRatedSellers()),
       BlocProvider(create: (context) => AddressCubit()),
-      BlocProvider(create: (context) => FavoritesCubit()..getFavorites()),
+      BlocProvider(create: (context) => FavoritesCubit()),
       BlocProvider(create: (context) => CartCubit()),
       BlocProvider(
         create: (context) => UserCubit()..getUserProfile(),

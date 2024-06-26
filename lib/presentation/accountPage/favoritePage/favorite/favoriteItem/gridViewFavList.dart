@@ -3,6 +3,7 @@ import 'package:final_project/model/Cubits/favorites_cubit/favorites_cubit.dart'
 import 'package:final_project/presentation/accountPage/favoritePage/favorite/favoriteItem/favItem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
 class gridViewFavList extends StatelessWidget {
   const gridViewFavList({super.key});
@@ -19,6 +20,7 @@ class gridViewFavList extends StatelessWidget {
           mainAxisSpacing: 1,
           builder: (ctx, index) {
             return favItem(
+                removeFavorite: () {},
                 productName: 'Mini Camera Figure',
                 sellerName: 'Mahmoud Elsayed',
                 price: 15.26);
@@ -54,6 +56,11 @@ class gridViewFavList1 extends StatelessWidget {
                       mainAxisSpacing: 1,
                       builder: (ctx, index) {
                         return favItem(
+                            removeFavorite: () {
+                              BlocProvider.of<FavoritesCubit>(context)
+                                  .deleteFromFavorites(
+                                      productID: cubit.favorites[index].id);
+                            },
                             productName: cubit.favorites[index].name,
                             sellerName: 'Mahmoud Elsayed',
                             price: cubit.favorites[index].price);

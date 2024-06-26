@@ -15,13 +15,13 @@ final class getAllFavoritesFaliure extends FavoritesState {
   getAllFavoritesFaliure({required this.errMsg});
 }
 
-final class addOrRemoveFromFavoritesInitial extends FavoritesState {}
+final class addToFavoritesInitial extends FavoritesState {}
 
-final class addOrRemoveFromFavoritesLoading extends FavoritesState {}
+final class addToFavoritesLoading extends FavoritesState {}
 
-final class addOrRemoveFromFavoritesSuccsess extends FavoritesState {}
+final class addToFavoritesSuccsess extends FavoritesState {}
 
-final class addOrRemoveFromFavoritesFaliure extends FavoritesState {
+final class addToFavoritesFaliure extends FavoritesState {
   final String errMsg;
-  addOrRemoveFromFavoritesFaliure({required this.errMsg});
+  addToFavoritesFaliure({required this.errMsg});
 }

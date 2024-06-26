@@ -47,7 +47,7 @@ class ProductsPage extends StatelessWidget {
                             title: cubit.allProducts[index].name,
                             desc: cubit.allProducts[index].description,
                             price: cubit.allProducts[index].price,
-                            quantity: cubit.allProducts[index].quantity,
+                            quantity: 3, //cubit.allProducts[index].quantity,
                             img: 'assets/images/burger-removebg-preview.png',
                             EditProductFun: () {
                               Get.to(() => EditProductScreen());

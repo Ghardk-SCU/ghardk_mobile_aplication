@@ -2,6 +2,7 @@ import 'package:final_project/core/utilits/constant.dart';
 import 'package:final_project/model/Cubits/Address_cubit/address_cubit.dart';
 import 'package:final_project/model/Cubits/Product_cubit/product_cubit.dart';
 import 'package:final_project/model/Cubits/cart_cubit/cart_cubit.dart';
+import 'package:final_project/model/Cubits/favorites_cubit/favorites_cubit.dart';
 import 'package:final_project/model/Cubits/user_cubit/user_cubit.dart';
 import 'package:final_project/presentation/Login&signup/login/components/forgotPasswordButton.dart';
 import 'package:final_project/presentation/Login&signup/login/components/loginButton.dart';
@@ -31,6 +32,7 @@ class loginContainer extends StatelessWidget {
           context.read<AddressCubit>().getAllAddress();
           context.read<ProductCubit>().getAllProducts();
           context.read<CartCubit>().getCarts();
+          context.read<FavoritesCubit>().getFavorites();
           Duration(milliseconds: 500);
           Get.off(() => mainPage());
         } else if (state is Loginfaliure) {
